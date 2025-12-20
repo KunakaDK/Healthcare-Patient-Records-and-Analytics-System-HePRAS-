@@ -1,6 +1,6 @@
 package ma.ensa.healthcare.model.enums;
 
-public class Sexe {
-    
-    
+public enum Sexe {
+    M,  // Masculin
+    F   // Féminin
 }

@@ -33,6 +33,7 @@ ma\ensa\healthcare\dao\interfaces\ITraitementDAO.class
 ma\ensa\healthcare\dto\RendezVousDTO.class
 ma\ensa\healthcare\dto\StatisticsDTO.class
 ma\ensa\healthcare\transaction\TransactionTemplate.class
+ma\ensa\healthcare\model\Patient$PatientBuilder.class
 ma\ensa\healthcare\dto\PageResult.class
 ma\ensa\healthcare\model\RendezVous.class
 ma\ensa\healthcare\exception\MedecinException.class

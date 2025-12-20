@@ -1,0 +1,106 @@
+2025-12-20 21:20:31.510 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-20 21:20:32.310 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@4a919a38
+2025-12-20 21:20:32.312 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-20 21:23:02.530 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-20 21:23:03.401 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@4a919a38
+2025-12-20 21:23:03.405 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-20 21:23:03.677 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur lors de la création du patient
+java.sql.SQLSyntaxErrorException: ORA-04043: object PATIENT does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:558)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1376)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Odsy.doODSY(T4C8Odsy.java:209)
+	at oracle.jdbc.driver.T4C8Odsy.doODSYTable(T4C8Odsy.java:154)
+	at oracle.jdbc.driver.T4CConnection.getColumnMetaData(T4CConnection.java:7398)
+	at oracle.jdbc.driver.T4CConnection.doDescribeTable(T4CConnection.java:7393)
+	at oracle.jdbc.driver.AutoKeyInfo.initialize(AutoKeyInfo.java:328)
+	at oracle.jdbc.driver.OraclePreparedStatement.initializeAutoKeyInfo(OraclePreparedStatement.java:11855)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3748)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:38)
+	at ma.ensa.healthcare.Main.main(Main.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2025-12-20 21:26:38.540 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-20 21:26:38.924 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@4a919a38
+2025-12-20 21:26:38.927 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-20 21:26:39.043 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur lors de la création du patient
+java.sql.SQLSyntaxErrorException: ORA-04043: object PATIENT does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:558)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1376)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Odsy.doODSY(T4C8Odsy.java:209)
+	at oracle.jdbc.driver.T4C8Odsy.doODSYTable(T4C8Odsy.java:154)
+	at oracle.jdbc.driver.T4CConnection.getColumnMetaData(T4CConnection.java:7398)
+	at oracle.jdbc.driver.T4CConnection.doDescribeTable(T4CConnection.java:7393)
+	at oracle.jdbc.driver.AutoKeyInfo.initialize(AutoKeyInfo.java:328)
+	at oracle.jdbc.driver.OraclePreparedStatement.initializeAutoKeyInfo(OraclePreparedStatement.java:11855)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3748)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:38)
+	at ma.ensa.healthcare.Main.main(Main.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2025-12-20 21:27:11.107 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-20 21:27:11.480 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@4a919a38
+2025-12-20 21:27:11.482 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-20 21:27:11.575 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur lors de la création du patient
+java.sql.SQLSyntaxErrorException: ORA-04043: object PATIENT does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:558)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1376)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Odsy.doODSY(T4C8Odsy.java:209)
+	at oracle.jdbc.driver.T4C8Odsy.doODSYTable(T4C8Odsy.java:154)
+	at oracle.jdbc.driver.T4CConnection.getColumnMetaData(T4CConnection.java:7398)
+	at oracle.jdbc.driver.T4CConnection.doDescribeTable(T4CConnection.java:7393)
+	at oracle.jdbc.driver.AutoKeyInfo.initialize(AutoKeyInfo.java:328)
+	at oracle.jdbc.driver.OraclePreparedStatement.initializeAutoKeyInfo(OraclePreparedStatement.java:11855)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3748)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:38)
+	at ma.ensa.healthcare.Main.main(Main.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2025-12-20 21:31:07.171 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-20 21:31:07.542 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@4a919a38
+2025-12-20 21:31:07.545 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-20 21:31:07.878 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 1

@@ -1,6 +1,9 @@
 package ma.ensa.healthcare.model.enums;
 
-public class StatutRendezVous {
-    
-    
+public enum StatutRendezVous {
+    PLANIFIE,
+    CONFIRME,
+    ANNULE,
+    TERMINE,
+    EN_ATTENTE
 }

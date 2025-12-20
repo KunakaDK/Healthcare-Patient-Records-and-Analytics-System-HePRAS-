@@ -1,7 +1,9 @@
 package ma.ensa.healthcare.model.enums;
 
-public class StatutPaiement {
-
-    
-    
+public enum StatutPaiement {
+    EN_ATTENTE,
+    PAYE,
+    PARTIEL,
+    ANNULE,
+    REMBOURSE
 }

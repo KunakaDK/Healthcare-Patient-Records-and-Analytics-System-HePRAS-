@@ -1,7 +1,6 @@
 package ma.ensa.healthcare.model.enums;
-
-public class Role {
-
-    
-    
+public enum Role {
+    ADMIN,
+    MEDECIN,
+    SECRETAIRE
 }

@@ -1,42 +1,54 @@
 package ma.ensa.healthcare;
 
 import ma.ensa.healthcare.config.HikariCPConfig;
-import ma.ensa.healthcare.config.PropertyManager;
+import ma.ensa.healthcare.dao.impl.PatientDAOImpl;
+import ma.ensa.healthcare.dao.interfaces.IPatientDAO;
+import ma.ensa.healthcare.model.enums.Sexe;
+import ma.ensa.healthcare.model.Patient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Classe principale pour tester l'initialisation de l'infrastructure Backend.
- * Step 1 : Validation de la configuration et de la connexion DB.
- */
+import java.time.LocalDate;
+
 public class Main {
     
-    // Initialisation du logger SLF4J
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        logger.info(">>> Démarrage de l'application Healthcare System (Step 1) <<<");
+        logger.info(">>> Démarrage du Test DAO (Step 2) <<<");
         
         try {
-            // 1. Chargement de la configuration
-            logger.info("1. Initialisation du PropertyManager...");
-            PropertyManager props = PropertyManager.getInstance();
-            logger.info("   Mode: {}", props.isDevelopment() ? "DEVELOPMENT" : "PRODUCTION");
-            
-            // 2. Initialisation du Pool de Connexions
-            logger.info("2. Initialisation du Pool HikariCP...");
-            // L'appel à getDataSource va déclencher la création du pool
+            // Initialisation du Pool
             HikariCPConfig.getDataSource();
             
-            // 3. Test de connectivité
-            logger.info("3. Test de connexion à Oracle Database...");
-            HikariCPConfig.testConnection();
+            // 1. Instanciation du DAO
+            IPatientDAO patientDAO = new PatientDAOImpl();
             
-            logger.info(">>> INITIALISATION RÉUSSIE : Le Backend est prêt ! <<<");
+            // 2. Création d'un objet Patient (Données fictives)
+            logger.info("Création d'un nouveau patient...");
+            Patient nouveauPatient = Patient.builder()
+                    .nom("EL ALAMI")
+                    .prenom("Ahmed")
+                    .cin("AB123456")
+                    .adresse("123 Av. Mohammed V, Tetouan")
+                    .telephone("0611223344")
+                    .email("ahmed.alami@example.com")
+                    .dateNaissance(LocalDate.of(1985, 5, 15))
+                    .sexe(Sexe.M)
+                    .antecedentsMedicaux("Allergie à la pénicilline")
+                    .dateCreation(LocalDate.now())
+                    .build();
+
+            // 3. Sauvegarde en Base de Données
+            Patient savedPatient = patientDAO.save(nouveauPatient);
+            logger.info("Patient enregistré avec succès ! ID attribué : {}", savedPatient.getId());
+
+            // 4. Lecture pour vérification
+            Patient retrievedPatient = patientDAO.findById(savedPatient.getId());
+            logger.info("Lecture depuis la DB : {} {}", retrievedPatient.getNom(), retrievedPatient.getPrenom());
             
         } catch (Exception e) {
-            logger.error(">>> ERREUR FATALE : L'application n'a pas pu démarrer <<<", e);
-            System.exit(1);
+            logger.error("ERREUR lors du test DAO", e);
         }
     }
 }
