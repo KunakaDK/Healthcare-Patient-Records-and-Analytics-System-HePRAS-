@@ -1,0 +1,6 @@
+package ma.ensa.healthcare.dao.impl;
+
+public class TraitementDAOImpl {
+    
+    
+}
