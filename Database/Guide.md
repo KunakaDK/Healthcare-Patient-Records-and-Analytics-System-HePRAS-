@@ -752,7 +752,7 @@ try {
 
 ---
 
-## 🧪 Tests et validation
+## Tests et validation
 
 ### Script de test SQL
 
@@ -817,7 +817,7 @@ END;
 
 ---
 
-## 🎯 Checklist finale
+## Checklist finale
 
 Avant de commencer le développement backend :
 
@@ -849,4 +849,5 @@ En cas de problème :
 **Bon développement !**
 
 *Guide créé pour le projet Healthcare Patient Records System - ENSA Tétouan*
+
 *Dernière mise à jour : Décembre 2025*
