@@ -1,8 +1,7 @@
 package ma.ensa.healthcare.dao.impl;
 
-import ma.ensa.healthcare.config.DatabaseConfig;
+import ma.ensa.healthcare.config.DatabaseConfig; // Assurez-vous que cette classe existe
 import ma.ensa.healthcare.dao.interfaces.IPatientDAO;
-// CORRECTION ICI : Le bon package pour l'Enum
 import ma.ensa.healthcare.model.enums.Sexe;
 import ma.ensa.healthcare.model.Patient;
 import org.slf4j.Logger;
@@ -22,7 +21,7 @@ public class PatientDAOImpl implements IPatientDAO {
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConfig.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql, new String[]{"ID"})) { 
+             PreparedStatement ps = conn.prepareStatement(sql, new String[]{"ID"})) {
 
             ps.setString(1, patient.getNom());
             ps.setString(2, patient.getPrenom());
@@ -31,7 +30,7 @@ public class PatientDAOImpl implements IPatientDAO {
             ps.setString(5, patient.getTelephone());
             ps.setString(6, patient.getEmail());
             ps.setDate(7, Date.valueOf(patient.getDateNaissance()));
-            ps.setString(8, patient.getSexe().name()); // Enregistre "M" ou "F"
+            ps.setString(8, patient.getSexe().name());
             ps.setString(9, patient.getAntecedentsMedicaux());
             ps.setDate(10, Date.valueOf(patient.getDateCreation()));
 
@@ -43,13 +42,13 @@ public class PatientDAOImpl implements IPatientDAO {
                         patient.setId(generatedKeys.getLong(1));
                     }
                 }
-                DatabaseConfig.commit(conn); 
+                // DatabaseConfig.commit(conn); // Décommentez si l'autocommit est désactivé
                 logger.info("Patient créé avec succès, ID: {}", patient.getId());
             }
 
         } catch (SQLException e) {
-            logger.error("Erreur lors de la création du patient", e);
-            throw new RuntimeException("Erreur SQL", e);
+            logger.error("Erreur save Patient", e);
+            throw new RuntimeException("Erreur SQL lors de la sauvegarde", e);
         }
         return patient;
     }
@@ -57,28 +56,89 @@ public class PatientDAOImpl implements IPatientDAO {
     @Override
     public Patient findById(Long id) {
         String sql = "SELECT * FROM PATIENT WHERE ID = ?";
-        Patient patient = null;
-
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setLong(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    patient = mapResultSetToPatient(rs);
+                    return mapResultSetToPatient(rs);
                 }
             }
-
         } catch (SQLException e) {
-            logger.error("Erreur lors de la recherche du patient ID: " + id, e);
+            logger.error("Erreur findById Patient", e);
         }
-        return patient;
+        return null;
     }
-    
-    @Override public Patient update(Patient patient) { return null; }
-    @Override public void delete(Long id) {}
-    @Override public List<Patient> findAll() { return new ArrayList<>(); }
-    @Override public List<Patient> findByNom(String nom) { return new ArrayList<>(); }
+
+    @Override
+    public List<Patient> findAll() {
+        List<Patient> patients = new ArrayList<>();
+        String sql = "SELECT * FROM PATIENT";
+        try (Connection conn = DatabaseConfig.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                patients.add(mapResultSetToPatient(rs));
+            }
+        } catch (SQLException e) {
+            logger.error("Erreur findAll Patient", e);
+        }
+        return patients;
+    }
+
+    @Override
+    public List<Patient> findByNom(String nom) {
+        List<Patient> patients = new ArrayList<>();
+        String sql = "SELECT * FROM PATIENT WHERE NOM LIKE ?"; 
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + nom + "%");
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    patients.add(mapResultSetToPatient(rs));
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("Erreur findByNom Patient", e);
+        }
+        return patients;
+    }
+
+    @Override
+    public void update(Patient patient) {
+        String sql = "UPDATE PATIENT SET NOM=?, PRENOM=?, ADRESSE=?, TELEPHONE=?, EMAIL=? WHERE ID=?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            ps.setString(1, patient.getNom());
+            ps.setString(2, patient.getPrenom());
+            ps.setString(3, patient.getAdresse());
+            ps.setString(4, patient.getTelephone());
+            ps.setString(5, patient.getEmail());
+            ps.setLong(6, patient.getId());
+            
+            ps.executeUpdate();
+            logger.info("Patient mis à jour ID: {}", patient.getId());
+        } catch (SQLException e) {
+            logger.error("Erreur update Patient", e);
+        }
+    }
+
+    @Override
+    public void delete(Long id) {
+        String sql = "DELETE FROM PATIENT WHERE ID = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+            logger.info("Patient supprimé ID: {}", id);
+        } catch (SQLException e) {
+            logger.error("Erreur delete Patient", e);
+        }
+    }
 
     private Patient mapResultSetToPatient(ResultSet rs) throws SQLException {
         return Patient.builder()
@@ -90,7 +150,7 @@ public class PatientDAOImpl implements IPatientDAO {
                 .telephone(rs.getString("TELEPHONE"))
                 .email(rs.getString("EMAIL"))
                 .dateNaissance(rs.getDate("DATE_NAISSANCE").toLocalDate())
-                .sexe(Sexe.valueOf(rs.getString("SEXE"))) // Convertit "M"/"F" en Enum
+                .sexe(Sexe.valueOf(rs.getString("SEXE")))
                 .antecedentsMedicaux(rs.getString("ANTECEDENTS_MEDICAUX"))
                 .dateCreation(rs.getDate("DATE_CREATION").toLocalDate())
                 .build();

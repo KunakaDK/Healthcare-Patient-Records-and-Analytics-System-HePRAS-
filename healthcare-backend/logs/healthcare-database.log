@@ -104,3 +104,79 @@ java.sql.SQLSyntaxErrorException: ORA-04043: object PATIENT does not exist
 2025-12-20 21:31:07.542 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@4a919a38
 2025-12-20 21:31:07.545 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
 2025-12-20 21:31:07.878 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 1
+2025-12-21 12:33:18.582 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-21 12:33:19.358 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@56156003
+2025-12-21 12:33:19.362 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-21 12:33:19.812 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur lors de la création du patient
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHCARE_ADMIN.SYS_C008283) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:38)
+	at ma.ensa.healthcare.Main.main(Main.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHCARE_ADMIN.SYS_C008283) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-21 12:50:11.806 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-21 12:50:12.354 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@56156003
+2025-12-21 12:50:12.357 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-21 12:50:12.621 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur lors de la création du patient
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHCARE_ADMIN.SYS_C008283) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:38)
+	at ma.ensa.healthcare.Main.main(Main.java:43)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHCARE_ADMIN.SYS_C008283) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-21 14:34:43.315 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-21 14:34:44.063 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@1086c0c2
+2025-12-21 14:34:44.065 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-21 14:40:07.795 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-21 14:40:08.139 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@1086c0c2
+2025-12-21 14:40:08.141 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.

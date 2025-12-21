@@ -1,8 +1,12 @@
 package ma.ensa.healthcare.dao.interfaces;
 
-public class IMedecinDAO {
+import ma.ensa.healthcare.model.Medecin;
+import java.util.List;
 
-
-    
-    
+public interface IMedecinDAO {
+    Medecin save(Medecin medecin);
+    Medecin findById(Long id);
+    List<Medecin> findAll();
+    void update(Medecin medecin);
+    void delete(Long id);
 }

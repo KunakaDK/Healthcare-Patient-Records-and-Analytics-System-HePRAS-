@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface IPatientDAO {
     Patient save(Patient patient);
-    Patient update(Patient patient);
-    void delete(Long id);
     Patient findById(Long id);
     List<Patient> findAll();
+    void update(Patient patient);
+    void delete(Long id);
     List<Patient> findByNom(String nom);
 }
