@@ -233,3 +233,42 @@ Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HE
 2025-12-21 14:40:07.638 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
 2025-12-21 14:40:08.141 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
 2025-12-21 14:40:08.144 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 14:57:44.226 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 14:57:44.231 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 14:57:45.203 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 14:57:45.206 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 15:02:37.584 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 15:02:37.589 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 15:02:38.160 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 15:02:38.164 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 15:16:55.839 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 15:16:55.842 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 15:16:56.484 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 15:16:56.489 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 15:23:39.714 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 15:23:39.717 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 15:23:40.230 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 15:23:40.233 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 15:45:55.772 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 15:45:55.779 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 15:45:56.491 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 15:45:56.494 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 15:51:09.429 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 15:51:09.433 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 15:51:09.960 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 15:51:09.965 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 15:56:54.721 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 15:56:54.725 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 15:56:55.267 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 15:56:55.272 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 16:01:15.835 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 16:01:15.838 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 16:01:16.434 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 16:01:16.437 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 16:03:36.493 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 16:03:36.494 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 16:03:37.044 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb
+2025-12-21 16:03:37.048 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - Test Successful ! DataBase accessible.
+2025-12-21 16:08:38.573 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Environment détecté : dev
+2025-12-21 16:08:38.580 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.config.PropertyManager - Configuration chargée avec succès depuis : application-dev.properties
+2025-12-21 16:08:39.092 INFO  [ma.ensa.healthcare.Main.main()] m.e.healthcare.config.HikariCPConfig - HikariCP Connection Pool démarré avec succès. URL: jdbc:oracle:thin:@localhost:1521/cybertagpdb

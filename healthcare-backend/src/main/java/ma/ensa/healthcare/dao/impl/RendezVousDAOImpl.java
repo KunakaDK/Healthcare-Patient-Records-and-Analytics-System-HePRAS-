@@ -25,8 +25,19 @@ public class RendezVousDAOImpl implements IRendezVousDAO {
             ps.setTimestamp(1, Timestamp.valueOf(rdv.getDateHeure()));
             ps.setString(2, rdv.getMotif());
             ps.setString(3, rdv.getStatut().name());
-            ps.setLong(4, rdv.getPatient().getId());
-            ps.setLong(5, rdv.getMedecin().getId());
+            
+            // Add null checks for patient and medecin IDs
+            if (rdv.getPatient() != null && rdv.getPatient().getId() != null) {
+                ps.setLong(4, rdv.getPatient().getId());
+            } else {
+                throw new IllegalArgumentException("Patient ID cannot be null");
+            }
+            
+            if (rdv.getMedecin() != null && rdv.getMedecin().getId() != null) {
+                ps.setLong(5, rdv.getMedecin().getId());
+            } else {
+                throw new IllegalArgumentException("Medecin ID cannot be null");
+            }
 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -35,6 +46,9 @@ public class RendezVousDAOImpl implements IRendezVousDAO {
             }
         } catch (SQLException e) {
             logger.error("Erreur save RendezVous", e);
+            throw new RuntimeException(e);
+        } catch (IllegalArgumentException e) {
+            logger.error("Validation error in save RendezVous: {}", e.getMessage());
             throw new RuntimeException(e);
         }
         return rdv;

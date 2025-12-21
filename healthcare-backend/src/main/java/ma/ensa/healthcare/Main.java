@@ -1,100 +1,112 @@
 package ma.ensa.healthcare;
 
+import ma.ensa.healthcare.config.HikariCPConfig;
+import ma.ensa.healthcare.facade.ConsultationFacade;
+import ma.ensa.healthcare.model.*;
+import ma.ensa.healthcare.model.enums.*;
+import ma.ensa.healthcare.dao.impl.*;
+import ma.ensa.healthcare.dao.interfaces.*;
+import ma.ensa.healthcare.service.UtilisateurService;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
-import ma.ensa.healthcare.config.HikariCPConfig;
-import ma.ensa.healthcare.dao.impl.MedecinDAOImpl;
-import ma.ensa.healthcare.dao.impl.PatientDAOImpl;
-import ma.ensa.healthcare.dao.impl.RendezVousDAOImpl;
-import ma.ensa.healthcare.dao.interfaces.IMedecinDAO;
-import ma.ensa.healthcare.dao.interfaces.IPatientDAO;
-import ma.ensa.healthcare.dao.interfaces.IRendezVousDAO;
-import ma.ensa.healthcare.facade.ConsultationFacade;
-import ma.ensa.healthcare.model.Consultation;
-import ma.ensa.healthcare.model.Medecin;
-import ma.ensa.healthcare.model.Patient;
-import ma.ensa.healthcare.model.RendezVous;
-import ma.ensa.healthcare.model.enums.Sexe;
-import ma.ensa.healthcare.model.enums.StatutRendezVous;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("=== INITIALISATION DU SYSTÈME HEALTHCARE ===");
-        
-        // 1. Test de connexion à Oracle
-        HikariCPConfig.testConnection();
+        System.out.println("==================================================");
+        System.out.println("   HEALTHCARE SYSTEM - INTEGRATION TEST A to Z    ");
+        System.out.println("==================================================");
 
         try {
-            // Initialisation des DAOs et Facades
+            // --- INITIALISATION DES COMPOSANTS ---
+            IUtilisateurDAO userDAO = new UtilisateurDAOImpl();
             IPatientDAO patientDAO = new PatientDAOImpl();
             IMedecinDAO medecinDAO = new MedecinDAOImpl();
             IRendezVousDAO rdvDAO = new RendezVousDAOImpl();
             ConsultationFacade consultationFacade = new ConsultationFacade();
 
-            // --- ÉTAPE 1 : CRÉATION DU PATIENT ---
-            System.out.println("\n[1] Enregistrement d'un nouveau patient...");
-Patient patient = Patient.builder()
-        .nom("Alami")
-        .prenom("Yassine")
-        .cin("K123456")
-        .email("y.alami@email.com")
-        .dateNaissance(LocalDate.of(1990, 5, 15))
-        .sexe(Sexe.M) // <-- AJOUTEZ CETTE LIGNE (Vérifiez le nom exact dans votre enum Sexe)
-        .telephone("0612345678")
-        .build();
-patientDAO.save(patient);
+            // --- 1. TEST SÉCURITÉ : UTILISATEUR ---
+            System.out.println("\n[STEP 1] Cr├®ation de l'administrateur...");
+            Utilisateur admin = Utilisateur.builder()
+                    .username("admin_" + System.currentTimeMillis()) // Unique
+                    .password("secret123")
+                    .email("admin@healthcare.ma")
+                    .role(Role.ADMIN)
+                    .actif(true)
+                    .build();
+            userDAO.save(admin);
+            System.out.println("Ô£ô Utilisateur configur├® : " + admin.getUsername());
 
-            // --- ÉTAPE 2 : CRÉATION DU MÉDECIN ---
-            System.out.println("\n[2] Enregistrement d'un médecin...");
+            // --- 2. TEST STRUCTURE : DÉPARTEMENT & MÉDECIN ---
+            System.out.println("\n[STEP 2] Configuration du corps m├®dical...");
+            // Note: Assurez-vous d'avoir un DAO pour Departement ou ins├®rez via SQL
             Medecin medecin = Medecin.builder()
-                    .nom("Benjelloun")
-                    .prenom("Sara")
+                    .nom("EL FASSI")
+                    .prenom("Dr. Amine")
                     .specialite("Cardiologie")
                     .build();
             medecinDAO.save(medecin);
-            System.out.println("Médecin créé avec ID : " + medecin.getId());
+            System.out.println("Ô£ô M├®decin enregistr├® : " + medecin.getNom());
 
-            // --- ÉTAPE 3 : PLANIFICATION D'UN RENDEZ-VOUS ---
-            System.out.println("\n[3] Planification d'un rendez-vous...");
+            // --- 3. TEST PATIENT : DOSSIER COMPLET ---
+            System.out.println("\n[STEP 3] Enregistrement d'un nouveau patient...");
+            Patient patient = Patient.builder()
+                    .nom("Berrada")
+                    .prenom("Salma")
+                    .cin("AB" + (int)(Math.random()*100000))
+                    .email("salma@email.com")
+                    .telephone("0600112233")
+                    .sexe(Sexe.F) // FIX pour votre erreur pr├®c├®dente
+                    .dateNaissance(LocalDate.of(1985, 10, 20))
+                    .build();
+            patientDAO.save(patient);
+            System.out.println("Ô£ô Patient ID : " + patient.getId());
+
+            // --- 4. TEST FLUX MÉDICAL : RDV & CONSULTATION ---
+            System.out.println("\n[STEP 4] Flux Consultation...");
             RendezVous rdv = RendezVous.builder()
-                    .dateHeure(LocalDateTime.now().plusDays(1))
+                    .dateHeure(LocalDateTime.now().plusHours(2))
                     .statut(StatutRendezVous.CONFIRME)
-                    .motif("Contrôle annuel")
+                    .motif("Douleur thoracique")
                     .patient(patient)
                     .medecin(medecin)
                     .build();
             rdvDAO.save(rdv);
-            System.out.println("Rendez-vous fixé pour le : " + rdv.getDateHeure());
+            System.out.println("Ô£ô RDV Planifi├®");
 
-            // --- ÉTAPE 4 : CONSULTATION ET FACTURATION AUTOMATIQUE ---
-            System.out.println("\n[4] Réalisation de la consultation...");
             Consultation consultation = Consultation.builder()
                     .dateConsultation(LocalDate.now())
-                    .diagnostic("Hypertension légère détectée")
-                    .traitementPrescrit("Amlodipine 5mg")
-                    .notesMedecin("Prévoir un test d'effort dans 3 mois")
+                    .diagnostic("Angine de poitrine l├®g├¿re")
+                    .traitementPrescrit("Repos + Trinitrine")
+                    .notesMedecin("Suivi strict requis")
                     .rendezVous(rdv)
                     .build();
 
-            // Utilisation de la Facade pour l'atomicité (Consultation + Facture)
-            consultationFacade.terminerConsultation(consultation, 300.00); 
-            System.out.println("Consultation terminée et Facture de 300.00 DH générée.");
+            // --- 5. TEST TRANSACTIONNEL : FACADE ---
+            System.out.println("\n[STEP 5] Finalisation & Facturation...");
+            consultationFacade.terminerConsultation(consultation, 500.00);
+            System.out.println("Ô£ô Consultation enregistr├®e");
+            System.out.println("Ô£ô Facture g├®n├®r├®e : 500.00 MAD (Statut: EN_ATTENTE)");
 
-            // --- ÉTAPE 5 : VÉRIFICATION FINALE ---
-            System.out.println("\n[5] Résumé du dossier patient :");
-            System.out.println("--------------------------------------------------");
-            System.out.println("Patient : " + patient.getNom() + " " + patient.getPrenom());
-            System.out.println("Diagnostic : " + consultation.getDiagnostic());
-            System.out.println("Statut de facturation : EN_ATTENTE");
-            System.out.println("--------------------------------------------------");
+            // --- 6. RÉCAPITULATIF FINAL ---
+            System.out.println("\n==================================================");
+            System.out.println("         TEST TERMIN├ë AVEC SUCC├êS !             ");
+            System.out.println("==================================================");
+            System.out.println("Résumé du test :");
+            System.out.println("- Dossier Patient : " + patient.getNom().toUpperCase() + " " + patient.getPrenom());
+            System.out.println("- Diagnostic : " + consultation.getDiagnostic());
+            System.out.println("- Facture rattachée au RDV n° : " + rdv.getId());
 
         } catch (Exception e) {
-            System.err.println("ERREUR LORS DU TEST : " + e.getMessage());
+            System.err.println("\n[!] ÉCHEC DU TEST À L'ÉTAPE :");
             e.printStackTrace();
         } finally {
-            System.out.println("\n=== FIN DU TEST DU SYSTÈME ===");
+            // Fermeture propre du pool pour éviter les warnings Maven
+            if (HikariCPConfig.getDataSource() != null) {
+                HikariCPConfig.getDataSource().close();
+                System.out.println("\nPool de connexions ferm├®.");
+            }
         }
     }
 }

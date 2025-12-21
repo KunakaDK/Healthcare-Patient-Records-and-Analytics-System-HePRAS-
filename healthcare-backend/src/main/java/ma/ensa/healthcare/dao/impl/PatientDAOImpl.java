@@ -1,6 +1,6 @@
 package ma.ensa.healthcare.dao.impl;
 
-import ma.ensa.healthcare.config.DatabaseConfig; // Assurez-vous que cette classe existe
+import ma.ensa.healthcare.config.DatabaseConfig;
 import ma.ensa.healthcare.dao.interfaces.IPatientDAO;
 import ma.ensa.healthcare.model.enums.Sexe;
 import ma.ensa.healthcare.model.Patient;
@@ -29,10 +29,21 @@ public class PatientDAOImpl implements IPatientDAO {
             ps.setString(4, patient.getAdresse());
             ps.setString(5, patient.getTelephone());
             ps.setString(6, patient.getEmail());
-            ps.setDate(7, Date.valueOf(patient.getDateNaissance()));
+            
+            if (patient.getDateNaissance() != null) {
+                ps.setDate(7, Date.valueOf(patient.getDateNaissance()));
+            } else {
+                ps.setNull(7, Types.DATE);
+            }
+            
             ps.setString(8, patient.getSexe().name());
             ps.setString(9, patient.getAntecedentsMedicaux());
-            ps.setDate(10, Date.valueOf(patient.getDateCreation()));
+            
+            if (patient.getDateCreation() != null) {
+                ps.setDate(10, Date.valueOf(patient.getDateCreation()));
+            } else {
+                ps.setNull(10, Types.DATE);
+            }
 
             int affectedRows = ps.executeUpdate();
 
@@ -42,7 +53,6 @@ public class PatientDAOImpl implements IPatientDAO {
                         patient.setId(generatedKeys.getLong(1));
                     }
                 }
-                // DatabaseConfig.commit(conn); // Décommentez si l'autocommit est désactivé
                 logger.info("Patient créé avec succès, ID: {}", patient.getId());
             }
 
@@ -141,7 +151,7 @@ public class PatientDAOImpl implements IPatientDAO {
     }
 
     private Patient mapResultSetToPatient(ResultSet rs) throws SQLException {
-        return Patient.builder()
+        Patient.PatientBuilder builder = Patient.builder()
                 .id(rs.getLong("ID"))
                 .nom(rs.getString("NOM"))
                 .prenom(rs.getString("PRENOM"))
@@ -149,10 +159,19 @@ public class PatientDAOImpl implements IPatientDAO {
                 .adresse(rs.getString("ADRESSE"))
                 .telephone(rs.getString("TELEPHONE"))
                 .email(rs.getString("EMAIL"))
-                .dateNaissance(rs.getDate("DATE_NAISSANCE").toLocalDate())
                 .sexe(Sexe.valueOf(rs.getString("SEXE")))
-                .antecedentsMedicaux(rs.getString("ANTECEDENTS_MEDICAUX"))
-                .dateCreation(rs.getDate("DATE_CREATION").toLocalDate())
-                .build();
+                .antecedentsMedicaux(rs.getString("ANTECEDENTS_MEDICAUX"));
+        
+        Date dateNaissance = rs.getDate("DATE_NAISSANCE");
+        if (dateNaissance != null) {
+            builder.dateNaissance(dateNaissance.toLocalDate());
+        }
+        
+        Date dateCreation = rs.getDate("DATE_CREATION");
+        if (dateCreation != null) {
+            builder.dateCreation(dateCreation.toLocalDate());
+        }
+        
+        return builder.build();
     }
 }
