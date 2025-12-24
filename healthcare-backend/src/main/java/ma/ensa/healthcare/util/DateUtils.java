@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.util;
 
+<<<<<<< HEAD
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.*;
@@ -286,5 +287,15 @@ public class DateUtils {
      */
     public static LocalDate tomorrow() {
         return LocalDate.now().plusDays(1);
+=======
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class DateUtils {
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+    public static String format(LocalDateTime dateTime) {
+        return dateTime != null ? dateTime.format(formatter) : "";
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }

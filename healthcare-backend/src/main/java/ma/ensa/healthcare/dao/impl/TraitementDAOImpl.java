@@ -4,7 +4,10 @@ import ma.ensa.healthcare.config.DatabaseConfig;
 import ma.ensa.healthcare.dao.interfaces.ITraitementDAO;
 import ma.ensa.healthcare.model.Traitement;
 import ma.ensa.healthcare.model.Medicament;
+<<<<<<< HEAD
 import ma.ensa.healthcare.model.Consultation;
+=======
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,15 +15,19 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 /**
  * Implémentation DAO pour l'entité TRAITEMENT
  * VERSION MINIMALE - Correspondance exacte avec la table Oracle
  */
+=======
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 public class TraitementDAOImpl implements ITraitementDAO {
     private static final Logger logger = LoggerFactory.getLogger(TraitementDAOImpl.class);
 
     @Override
     public Traitement save(Traitement t) {
+<<<<<<< HEAD
         // ✅ Colonnes exactes de la table TRAITEMENT
         String sql = "INSERT INTO TRAITEMENT (id_traitement, id_consultation, id_medicament, " +
                      "posologie, duree_traitement, instructions, quantite) " +
@@ -49,10 +56,24 @@ public class TraitementDAOImpl implements ITraitementDAO {
             logger.error("Erreur save Traitement: {}", e.getMessage(), e);
             throw new RuntimeException("Erreur lors de la sauvegarde du traitement", e);
         }
+=======
+        String sql = "INSERT INTO TRAITEMENT (POSOLOGIE, DUREE_JOURS, CONSULTATION_ID, MEDICAMENT_ID) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, new String[]{"ID"})) {
+            ps.setString(1, t.getPosologie());
+            ps.setInt(2, t.getDureeJours());
+            ps.setLong(3, t.getConsultation().getId());
+            ps.setLong(4, t.getMedicament().getId());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) t.setId(rs.getLong(1));
+        } catch (SQLException e) { logger.error("Erreur save Traitement", e); }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         return t;
     }
 
     @Override
+<<<<<<< HEAD
     public Traitement findById(Long id) {
         String sql = "SELECT t.*, " +
                      "m.nom_commercial, m.principe_actif, m.forme, m.dosage " +
@@ -172,4 +193,24 @@ public class TraitementDAOImpl implements ITraitementDAO {
                 .quantite(rs.getInt("quantite"))
                 .build();
     }
+=======
+    public List<Traitement> findByConsultationId(Long consultationId) {
+        List<Traitement> list = new ArrayList<>();
+        String sql = "SELECT t.*, m.nom FROM TRAITEMENT t JOIN MEDICAMENT m ON t.medicament_id = m.id WHERE t.consultation_id = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setLong(1, consultationId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Medicament m = new Medicament();
+                m.setId(rs.getLong("MEDICAMENT_ID"));
+                m.setNom(rs.getString("NOM"));
+                list.add(new Traitement(rs.getLong("ID"), rs.getString("POSOLOGIE"), rs.getInt("DUREE_JOURS"), null, m));
+            }
+        } catch (SQLException e) { logger.error("Erreur findByConsultationId", e); }
+        return list;
+    }
+
+    @Override public void delete(Long id) { /* SQL DELETE */ }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

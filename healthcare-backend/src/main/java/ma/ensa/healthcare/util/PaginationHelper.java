@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.util;
 
+<<<<<<< HEAD
 /**
  * Utilitaires pour la pagination
  */
@@ -137,4 +138,10 @@ public class PaginationHelper {
                                pageNumber, totalPages, getNumberOfElements(), totalElements);
         }
     }
+=======
+public class PaginationHelper {
+    public static int calculateOffset(int page, int size) {
+        return (page - 1) * size;
+    }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

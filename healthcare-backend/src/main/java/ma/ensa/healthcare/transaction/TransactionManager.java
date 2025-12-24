@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.transaction;
 
+<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,6 +115,27 @@ public class TransactionManager {
         } catch (SQLException e) {
             logger.error("Erreur lors de la vérification de la connexion", e);
             return false;
+=======
+import ma.ensa.healthcare.config.DatabaseConfig;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class TransactionManager {
+    public static void beginTransaction(Connection conn) throws SQLException {
+        conn.setAutoCommit(false);
+    }
+
+    public static void commit(Connection conn) throws SQLException {
+        conn.commit();
+        conn.setAutoCommit(true);
+    }
+
+    public static void rollback(Connection conn) {
+        try {
+            if (conn != null) conn.rollback();
+        } catch (SQLException e) {
+            e.printStackTrace();
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         }
     }
 }

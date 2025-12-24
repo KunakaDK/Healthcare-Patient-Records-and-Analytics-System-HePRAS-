@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.util;
 
+<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -243,4 +244,15 @@ public class CacheManager {
                                getActiveEntries(), maxSize, getUsagePercent(), expiredEntries);
         }
     }
+=======
+import java.util.HashMap;
+import java.util.Map;
+
+public class CacheManager {
+    private static final Map<String, Object> cache = new HashMap<>();
+
+    public static void put(String key, Object value) { cache.put(key, value); }
+    public static Object get(String key) { return cache.get(key); }
+    public static void clear() { cache.clear(); }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

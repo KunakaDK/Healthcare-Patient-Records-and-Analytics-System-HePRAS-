@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.util;
 
+<<<<<<< HEAD
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -261,5 +262,15 @@ public class StringUtils {
             .filter(word -> !word.isEmpty())
             .map(word -> String.valueOf(word.charAt(0)).toUpperCase())
             .collect(Collectors.joining());
+=======
+public class StringUtils {
+    public static String capitalize(String str) {
+        if (str == null || str.isEmpty()) return str;
+        return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
+    }
+
+    public static String maskPassword(String password) {
+        return (password == null) ? "****" : "*".repeat(password.length());
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }

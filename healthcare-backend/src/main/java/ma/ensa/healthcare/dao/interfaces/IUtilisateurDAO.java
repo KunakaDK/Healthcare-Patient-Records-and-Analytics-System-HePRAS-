@@ -1,6 +1,7 @@
 package ma.ensa.healthcare.dao.interfaces;
 
 import ma.ensa.healthcare.model.Utilisateur;
+<<<<<<< HEAD
 import java.util.List;
 
 /**
@@ -46,4 +47,14 @@ public interface IUtilisateurDAO {
     void bloquerUtilisateur(Long utilisateurId);
     void debloquerUtilisateur(Long utilisateurId);
     void updatePassword(Long utilisateurId, String newPasswordHash);
+=======
+import java.util.Optional;
+
+public interface IUtilisateurDAO {
+    Utilisateur save(Utilisateur utilisateur);
+    Utilisateur findByUsername(String username);
+    Utilisateur findById(Long id);
+    void updatePassword(Long id, String newPassword);
+    void delete(Long id);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.facade;
 
+<<<<<<< HEAD
 import ma.ensa.healthcare.dto.PatientDTO;
 import ma.ensa.healthcare.model.Patient;
 import ma.ensa.healthcare.service.PatientService;
@@ -11,12 +12,21 @@ import java.util.stream.Collectors;
  * Facade pour simplifier les opérations sur les patients
  */
 public class PatientFacade {
+=======
+import ma.ensa.healthcare.model.Patient;
+import ma.ensa.healthcare.service.PatientService;
+import java.util.List;
+
+public class PatientFacade {
+    
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     private final PatientService patientService;
 
     public PatientFacade() {
         this.patientService = new PatientService();
     }
 
+<<<<<<< HEAD
     /**
      * Inscrit un nouveau patient
      */
@@ -131,4 +141,13 @@ public class PatientFacade {
     public boolean cinExiste(String cin) {
         return patientService.rechercherParCin(cin) != null;
     }
+=======
+    public Patient inscrirePatient(Patient p) {
+        return patientService.createPatient(p);
+    }
+
+    public List<Patient> listerPatients() {
+        return patientService.getAllPatients();
+    }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

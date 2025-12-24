@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.facade;
 
+<<<<<<< HEAD
 import ma.ensa.healthcare.dto.FactureDTO;
 import ma.ensa.healthcare.model.Facture;
 import ma.ensa.healthcare.model.enums.ModePaiement;
@@ -173,5 +174,16 @@ public class FacturationFacade {
      */
     public void annulerFacture(Long factureId) {
         facturationService.annulerFacture(factureId);
+=======
+import ma.ensa.healthcare.service.FacturationService;
+import ma.ensa.healthcare.dto.FactureDTO;
+
+public class FacturationFacade {
+    private final FacturationService facturationService = new FacturationService();
+
+    public void encaisser(Long factureId) {
+        facturationService.encaisserPaiement(factureId);
+        // Ici on pourrait ajouter l'envoi d'un email de confirmation par un EmailService
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }

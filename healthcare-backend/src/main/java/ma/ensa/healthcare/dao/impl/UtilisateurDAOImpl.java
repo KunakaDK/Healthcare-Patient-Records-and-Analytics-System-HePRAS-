@@ -3,13 +3,17 @@ package ma.ensa.healthcare.dao.impl;
 import ma.ensa.healthcare.config.DatabaseConfig;
 import ma.ensa.healthcare.dao.interfaces.IUtilisateurDAO;
 import ma.ensa.healthcare.model.Utilisateur;
+<<<<<<< HEAD
 import ma.ensa.healthcare.model.Medecin;
 import ma.ensa.healthcare.model.Patient;
+=======
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 import ma.ensa.healthcare.model.enums.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.*;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +21,15 @@ import java.util.List;
  * Implémentation DAO pour l'entité UTILISATEUR
  * VERSION CORRIGÉE - Gestion correcte des valeurs par défaut Oracle
  */
+=======
+
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 public class UtilisateurDAOImpl implements IUtilisateurDAO {
     private static final Logger logger = LoggerFactory.getLogger(UtilisateurDAOImpl.class);
 
     @Override
     public Utilisateur save(Utilisateur u) {
+<<<<<<< HEAD
         // ✅ Vérifier si l'utilisateur existe déjà par son username
         Utilisateur existing = findByUsername(u.getUsername());
         if (existing != null) {
@@ -82,11 +90,26 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
             logger.error("Erreur save Utilisateur: {}", e.getMessage(), e);
             throw new RuntimeException("Erreur lors de la sauvegarde de l'utilisateur", e);
         }
+=======
+        String sql = "INSERT INTO UTILISATEUR (USERNAME, PASSWORD, EMAIL, ROLE, ACTIF) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, new String[]{"ID"})) {
+            ps.setString(1, u.getUsername());
+            ps.setString(2, u.getPassword());
+            ps.setString(3, u.getEmail());
+            ps.setString(4, u.getRole().name());
+            ps.setBoolean(5, u.isActif());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) u.setId(rs.getLong(1));
+        } catch (SQLException e) { logger.error("Erreur save Utilisateur", e); }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         return u;
     }
 
     @Override
     public Utilisateur findByUsername(String username) {
+<<<<<<< HEAD
         String sql = "SELECT * FROM UTILISATEUR WHERE username = ?";
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -295,5 +318,32 @@ public class UtilisateurDAOImpl implements IUtilisateurDAO {
         }
         
         return builder.build();
+=======
+        String sql = "SELECT * FROM UTILISATEUR WHERE USERNAME = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return mapResultSetToUser(rs);
+            }
+        } catch (SQLException e) { logger.error("Erreur findByUsername", e); }
+        return null;
+    }
+
+    @Override public Utilisateur findById(Long id) { return null; }
+    @Override public void updatePassword(Long id, String newPassword) { /* SQL UPDATE */ }
+    @Override public void delete(Long id) { /* SQL DELETE */ }
+
+    private Utilisateur mapResultSetToUser(ResultSet rs) throws SQLException {
+        return Utilisateur.builder()
+                .id(rs.getLong("ID"))
+                .username(rs.getString("USERNAME"))
+                .password(rs.getString("PASSWORD"))
+                .email(rs.getString("EMAIL"))
+                .role(Role.valueOf(rs.getString("ROLE")))
+                .actif(rs.getBoolean("ACTIF"))
+                .build();
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }
