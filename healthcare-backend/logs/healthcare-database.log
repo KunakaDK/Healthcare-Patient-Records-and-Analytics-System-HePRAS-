@@ -1,0 +1,1065 @@
+2025-12-24 00:12:33.812 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:12:36.460 ERROR [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Exception during pool initialization.
+java.sql.SQLException: ORA-01017: nom utilisateur/mot de passe non valide ; connexion refusée
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:558)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1376)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:783)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:451)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTHWithO5Logon(T4CTTIoauthenticate.java:1565)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1314)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1268)
+	at oracle.jdbc.driver.T4CConnection.authenticateWithPassword(T4CConnection.java:1514)
+	at oracle.jdbc.driver.T4CConnection.authenticateUserForLogon(T4CConnection.java:1463)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:676)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1094)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:89)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:732)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:648)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at ma.ensa.healthcare.config.HikariCPConfig.createDataSource(HikariCPConfig.java:69)
+	at ma.ensa.healthcare.config.HikariCPConfig.getDataSource(HikariCPConfig.java:31)
+	at ma.ensa.healthcare.config.DatabaseConfig.getConnection(DatabaseConfig.java:25)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:28)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-12-24 00:14:03.896 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:14:06.812 ERROR [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Exception during pool initialization.
+java.sql.SQLException: ORA-01017: nom utilisateur/mot de passe non valide ; connexion refusée
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:558)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1376)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:783)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:451)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTHWithO5Logon(T4CTTIoauthenticate.java:1565)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1314)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1268)
+	at oracle.jdbc.driver.T4CConnection.authenticateWithPassword(T4CConnection.java:1514)
+	at oracle.jdbc.driver.T4CConnection.authenticateUserForLogon(T4CConnection.java:1463)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:676)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1094)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:89)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:732)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:648)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at ma.ensa.healthcare.config.HikariCPConfig.createDataSource(HikariCPConfig.java:69)
+	at ma.ensa.healthcare.config.HikariCPConfig.getDataSource(HikariCPConfig.java:31)
+	at ma.ensa.healthcare.config.DatabaseConfig.getConnection(DatabaseConfig.java:25)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:28)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-12-24 00:16:32.837 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:16:35.640 ERROR [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Exception during pool initialization.
+java.sql.SQLException: ORA-01017: nom utilisateur/mot de passe non valide ; connexion refusée
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:558)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:553)
+	at oracle.jdbc.driver.T4CTTIfun.processError(T4CTTIfun.java:1376)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.processError(T4CTTIoauthenticate.java:783)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:451)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTHWithO5Logon(T4CTTIoauthenticate.java:1565)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1314)
+	at oracle.jdbc.driver.T4CTTIoauthenticate.doOAUTH(T4CTTIoauthenticate.java:1268)
+	at oracle.jdbc.driver.T4CConnection.authenticateWithPassword(T4CConnection.java:1514)
+	at oracle.jdbc.driver.T4CConnection.authenticateUserForLogon(T4CConnection.java:1463)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:676)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1094)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:89)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:732)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:648)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at ma.ensa.healthcare.config.HikariCPConfig.createDataSource(HikariCPConfig.java:69)
+	at ma.ensa.healthcare.config.HikariCPConfig.getDataSource(HikariCPConfig.java:31)
+	at ma.ensa.healthcare.config.DatabaseConfig.getConnection(DatabaseConfig.java:25)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:28)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-12-24 00:18:08.689 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:18:09.406 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@7e8efe6c
+2025-12-24 00:18:09.408 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 00:18:09.919 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Erreur save Departement: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:43)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 00:22:19.119 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:22:19.614 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@127292c8
+2025-12-24 00:22:19.614 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 00:22:19.909 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Erreur save Departement: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:43)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 00:22:54.978 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:22:55.581 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@7e8efe6c
+2025-12-24 00:22:55.585 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 00:22:55.827 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Erreur save Departement: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:43)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 00:31:42.587 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:31:43.291 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@7e8efe6c
+2025-12-24 00:31:43.291 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 00:31:43.554 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Erreur save Departement: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:43)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 00:38:10.616 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 00:38:11.232 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@6a1d9fc2
+2025-12-24 00:38:11.232 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 00:38:11.567 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Erreur save Departement: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:43)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:23:24.722 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:23:25.687 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@7e8efe6c
+2025-12-24 01:23:25.689 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:27:32.028 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Erreur save Departement: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.DepartementDAOImpl.save(DepartementDAOImpl.java:51)
+	at ma.ensa.healthcare.Main.main(Main.java:50)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008550) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:30:54.992 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:30:55.755 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@7e8efe6c
+2025-12-24 01:30:55.759 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:30:56.163 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Le département 'Neurologie' existe déjà avec l'ID 17. Retour de l'instance existante.
+2025-12-24 01:30:56.242 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_neurologie1766536256168 (ID: 5)
+2025-12-24 01:30:56.342 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Erreur save Medecin: ORA-01400: cannot insert NULL into ("HEALTHY"."MEDECIN"."ID_DEPARTEMENT")
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("HEALTHY"."MEDECIN"."ID_DEPARTEMENT")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.MedecinDAOImpl.save(MedecinDAOImpl.java:44)
+	at ma.ensa.healthcare.Main.main(Main.java:79)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-01400: cannot insert NULL into ("HEALTHY"."MEDECIN"."ID_DEPARTEMENT")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:36:56.883 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:36:57.686 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@5c319af8
+2025-12-24 01:36:57.690 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:36:58.095 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Le département 'Neurologie' existe déjà avec l'ID 17. Retour de l'instance existante.
+2025-12-24 01:36:58.164 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Erreur save Utilisateur: ORA-01400: cannot insert NULL into ("HEALTHY"."UTILISATEUR"."DATE_CREATION")
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("HEALTHY"."UTILISATEUR"."DATE_CREATION")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.UtilisateurDAOImpl.save(UtilisateurDAOImpl.java:71)
+	at ma.ensa.healthcare.Main.main(Main.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-01400: cannot insert NULL into ("HEALTHY"."UTILISATEUR"."DATE_CREATION")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:38:47.339 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:38:48.087 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@649a3f26
+2025-12-24 01:38:48.089 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:38:48.560 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Le département 'Neurologie' existe déjà avec l'ID 17. Retour de l'instance existante.
+2025-12-24 01:38:48.616 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Erreur save Utilisateur: ORA-01400: cannot insert NULL into ("HEALTHY"."UTILISATEUR"."DATE_CREATION")
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("HEALTHY"."UTILISATEUR"."DATE_CREATION")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.UtilisateurDAOImpl.save(UtilisateurDAOImpl.java:71)
+	at ma.ensa.healthcare.Main.main(Main.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-01400: cannot insert NULL into ("HEALTHY"."UTILISATEUR"."DATE_CREATION")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:43:45.672 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:43:46.698 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@5c319af8
+2025-12-24 01:43:46.700 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:43:47.057 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Le département 'Neurologie' existe déjà avec l'ID 17. Retour de l'instance existante.
+2025-12-24 01:43:47.099 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_neurologie1766537027062 (ID: 8)
+2025-12-24 01:43:47.122 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENALI Karim (ID: 10)
+2025-12-24 01:43:47.134 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. TAZI Sara (ID: 11)
+2025-12-24 01:43:47.143 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 10 pour département 17
+2025-12-24 01:43:47.185 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur save Patient: ORA-01400: cannot insert NULL into ("HEALTHY"."PATIENT"."DATE_INSCRIPTION")
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("HEALTHY"."PATIENT"."DATE_INSCRIPTION")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:57)
+	at ma.ensa.healthcare.Main.main(Main.java:119)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-01400: cannot insert NULL into ("HEALTHY"."PATIENT"."DATE_INSCRIPTION")
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:45:31.197 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:45:32.131 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@5c319af8
+2025-12-24 01:45:32.137 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:45:32.545 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Le département 'Neurologie' existe déjà avec l'ID 17. Retour de l'instance existante.
+2025-12-24 01:45:32.589 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Erreur save Utilisateur: ORA-00001: unique constraint (HEALTHY.SYS_C008630) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008630) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.UtilisateurDAOImpl.save(UtilisateurDAOImpl.java:64)
+	at ma.ensa.healthcare.Main.main(Main.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008630) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 01:50:33.048 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 01:50:33.993 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@5c319af8
+2025-12-24 01:50:33.996 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 01:50:34.636 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Le département 'Neurologie' existe déjà avec l'ID 17. Retour de l'instance existante.
+2025-12-24 01:50:34.692 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Erreur save Utilisateur: ORA-00001: unique constraint (HEALTHY.SYS_C008630) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008630) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.UtilisateurDAOImpl.save(UtilisateurDAOImpl.java:72)
+	at ma.ensa.healthcare.Main.main(Main.java:54)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008630) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 02:00:42.199 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 02:00:43.230 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@24b7bf39
+2025-12-24 02:00:43.233 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 02:00:43.666 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : test1 (ID: 19)
+2025-12-24 02:00:43.703 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_Test11766538043686 (ID: 11)
+2025-12-24 02:00:43.728 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENALI Karim (ID: 12)
+2025-12-24 02:00:43.735 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. TAZI Sara (ID: 13)
+2025-12-24 02:00:43.747 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 12 pour département 19
+2025-12-24 02:00:43.777 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 12
+2025-12-24 02:00:43.791 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 13
+2025-12-24 02:15:41.063 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 02:15:42.039 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@649a3f26
+2025-12-24 02:15:42.044 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 02:15:42.627 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : test2 (ID: 20)
+2025-12-24 02:15:42.644 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_test21766538942633 (ID: 12)
+2025-12-24 02:15:42.657 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENALI Karim (ID: 14)
+2025-12-24 02:15:42.666 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. TAZI Sara (ID: 15)
+2025-12-24 02:15:42.674 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 14 pour département 20
+2025-12-24 02:15:42.692 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur save Patient: ORA-00001: unique constraint (HEALTHY.SYS_C008570) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008570) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:57)
+	at ma.ensa.healthcare.Main.main(Main.java:119)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008570) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 02:20:13.365 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 02:20:14.456 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@649a3f26
+2025-12-24 02:20:14.459 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 02:20:14.849 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : test3 (ID: 21)
+2025-12-24 02:20:14.878 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_test31766539214856 (ID: 13)
+2025-12-24 02:20:14.896 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENALI Karim (ID: 16)
+2025-12-24 02:20:14.914 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. TAZI Sara (ID: 17)
+2025-12-24 02:20:14.923 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 16 pour département 21
+2025-12-24 02:20:14.989 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 15
+2025-12-24 02:20:15.001 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 16
+2025-12-24 03:49:16.772 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 03:49:17.728 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@563ee29a
+2025-12-24 03:49:17.733 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 03:49:18.181 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_90658162 (ID: 22)
+2025-12-24 03:49:18.205 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 18)
+2025-12-24 03:49:18.231 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 19)
+2025-12-24 03:49:18.239 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 18 pour département 22
+2025-12-24 03:49:18.262 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 17
+2025-12-24 03:49:18.288 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur save Patient: ORA-20102: Format de telephone invalide. Utiliser: +212XXXXXXXXX
+ORA-06512: at "HEALTHY.TRG_VALIDATE_PATIENT", line 15
+ORA-04088: error during execution of trigger 'HEALTHY.TRG_VALIDATE_PATIENT'
+
+java.sql.SQLException: ORA-20102: Format de telephone invalide. Utiliser: +212XXXXXXXXX
+ORA-06512: at "HEALTHY.TRG_VALIDATE_PATIENT", line 15
+ORA-04088: error during execution of trigger 'HEALTHY.TRG_VALIDATE_PATIENT'
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:57)
+	at ma.ensa.healthcare.Main.main(Main.java:152)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-20102: Format de telephone invalide. Utiliser: +212XXXXXXXXX
+ORA-06512: at "HEALTHY.TRG_VALIDATE_PATIENT", line 15
+ORA-04088: error during execution of trigger 'HEALTHY.TRG_VALIDATE_PATIENT'
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 03:54:32.651 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 03:54:33.545 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@563ee29a
+2025-12-24 03:54:33.550 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 03:54:34.122 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_e9fffdf1 (ID: 23)
+2025-12-24 03:54:34.148 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 20)
+2025-12-24 03:54:34.182 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 21)
+2025-12-24 03:54:34.193 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 20 pour département 23
+2025-12-24 03:54:34.233 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Erreur save Patient: ORA-20102: Format de telephone invalide. Utiliser: +212XXXXXXXXX
+ORA-06512: at "HEALTHY.TRG_VALIDATE_PATIENT", line 15
+ORA-04088: error during execution of trigger 'HEALTHY.TRG_VALIDATE_PATIENT'
+
+java.sql.SQLException: ORA-20102: Format de telephone invalide. Utiliser: +212XXXXXXXXX
+ORA-06512: at "HEALTHY.TRG_VALIDATE_PATIENT", line 15
+ORA-04088: error during execution of trigger 'HEALTHY.TRG_VALIDATE_PATIENT'
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.PatientDAOImpl.save(PatientDAOImpl.java:57)
+	at ma.ensa.healthcare.Main.main(Main.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-20102: Format de telephone invalide. Utiliser: +212XXXXXXXXX
+ORA-06512: at "HEALTHY.TRG_VALIDATE_PATIENT", line 15
+ORA-04088: error during execution of trigger 'HEALTHY.TRG_VALIDATE_PATIENT'
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 24 common frames omitted
+2025-12-24 03:58:02.907 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 03:58:03.663 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@19055eba
+2025-12-24 03:58:03.666 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 03:58:04.109 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_627d7005 (ID: 24)
+2025-12-24 03:58:04.126 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 22)
+2025-12-24 03:58:04.149 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 23)
+2025-12-24 03:58:04.158 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 22 pour département 24
+2025-12-24 03:58:04.188 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 20
+2025-12-24 03:58:04.200 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 21
+2025-12-24 03:58:04.219 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_627d7005 (ID: 14)
+2025-12-24 03:58:04.231 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_Z627D70 (ID: 15)
+2025-12-24 03:58:04.278 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 9
+2025-12-24 03:58:04.287 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 10
+2025-12-24 03:58:04.345 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Augmentin_627d (ID: 16)
+2025-12-24 03:58:04.356 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Toplexil_627d (ID: 17)
+2025-12-24 03:58:04.375 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Brufen_627d (ID: 18)
+2025-12-24 03:58:04.422 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 6
+2025-12-24 03:58:04.458 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Erreur save Facture: ORA-00001: unique constraint (HEALTHY.SYS_C008616) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008616) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.FactureDAOImpl.save(FactureDAOImpl.java:61)
+	at ma.ensa.healthcare.service.FacturationService.genererFacture(FacturationService.java:76)
+	at ma.ensa.healthcare.facade.ConsultationFacade.terminerConsultation(ConsultationFacade.java:55)
+	at ma.ensa.healthcare.Main.main(Main.java:343)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008616) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 26 common frames omitted
+2025-12-24 04:04:18.493 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:04:19.218 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@42a32186
+2025-12-24 04:04:19.220 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:04:19.718 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_34fa57dd (ID: 25)
+2025-12-24 04:04:19.743 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 24)
+2025-12-24 04:04:19.762 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 25)
+2025-12-24 04:04:19.765 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 24 pour département 25
+2025-12-24 04:04:19.782 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 22
+2025-12-24 04:04:19.795 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 23
+2025-12-24 04:04:19.811 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_34fa57dd (ID: 16)
+2025-12-24 04:04:19.823 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_Z34FA57 (ID: 17)
+2025-12-24 04:04:19.852 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 11
+2025-12-24 04:04:19.879 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 12
+2025-12-24 04:04:19.921 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Augmentin_34fa (ID: 19)
+2025-12-24 04:04:19.929 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Toplexil_34fa (ID: 20)
+2025-12-24 04:04:19.940 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Brufen_34fa (ID: 21)
+2025-12-24 04:04:19.963 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Erreur save Consultation: ORA-01722: invalid number
+
+java.sql.SQLSyntaxErrorException: ORA-01722: invalid number
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.ConsultationDAOImpl.save(ConsultationDAOImpl.java:36)
+	at ma.ensa.healthcare.service.ConsultationService.enregistrerConsultation(ConsultationService.java:37)
+	at ma.ensa.healthcare.facade.ConsultationFacade.terminerConsultation(ConsultationFacade.java:37)
+	at ma.ensa.healthcare.Main.main(Main.java:342)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-01722: invalid number
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 26 common frames omitted
+2025-12-24 04:12:21.888 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:12:22.690 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@19055eba
+2025-12-24 04:12:22.690 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:12:23.174 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_ea246283 (ID: 26)
+2025-12-24 04:12:23.199 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 26)
+2025-12-24 04:12:23.233 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 27)
+2025-12-24 04:12:23.237 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 26 pour département 26
+2025-12-24 04:12:23.257 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 24
+2025-12-24 04:12:23.265 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 25
+2025-12-24 04:12:23.297 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_ea246283 (ID: 18)
+2025-12-24 04:12:23.346 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_ZEA2462 (ID: 19)
+2025-12-24 04:12:23.415 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 13
+2025-12-24 04:12:23.442 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 14
+2025-12-24 04:12:23.462 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Augmentin_ea24 (ID: 22)
+2025-12-24 04:12:23.490 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Toplexil_ea24 (ID: 23)
+2025-12-24 04:12:23.529 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Brufen_ea24 (ID: 24)
+2025-12-24 04:12:23.565 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 8
+2025-12-24 04:12:23.647 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Erreur save Facture: ORA-00932: inconsistent datatypes: expected NUMBER got DATE
+
+java.sql.SQLSyntaxErrorException: ORA-00932: inconsistent datatypes: expected NUMBER got DATE
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.FactureDAOImpl.save(FactureDAOImpl.java:61)
+	at ma.ensa.healthcare.service.FacturationService.genererFacture(FacturationService.java:76)
+	at ma.ensa.healthcare.facade.ConsultationFacade.terminerConsultation(ConsultationFacade.java:55)
+	at ma.ensa.healthcare.Main.main(Main.java:343)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00932: inconsistent datatypes: expected NUMBER got DATE
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 26 common frames omitted
+2025-12-24 04:13:59.840 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:14:00.698 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@563ee29a
+2025-12-24 04:14:00.701 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:14:01.014 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_de49cf42 (ID: 27)
+2025-12-24 04:14:01.025 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 28)
+2025-12-24 04:14:01.059 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 29)
+2025-12-24 04:14:01.069 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 28 pour département 27
+2025-12-24 04:14:01.084 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 26
+2025-12-24 04:14:01.094 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 27
+2025-12-24 04:14:01.113 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_de49cf42 (ID: 20)
+2025-12-24 04:14:01.123 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_ZDE49CF (ID: 21)
+2025-12-24 04:14:01.142 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 15
+2025-12-24 04:14:01.176 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 16
+2025-12-24 04:14:01.190 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Augmentin_de49 (ID: 25)
+2025-12-24 04:14:01.198 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Toplexil_de49 (ID: 26)
+2025-12-24 04:14:01.202 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Brufen_de49 (ID: 27)
+2025-12-24 04:14:01.214 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 9
+2025-12-24 04:14:01.238 ERROR [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Erreur save Facture: ORA-00001: unique constraint (HEALTHY.SYS_C008616) violated
+
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (HEALTHY.SYS_C008616) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:629)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:563)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1230)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:771)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:298)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:511)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:162)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:1240)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1819)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1471)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3760)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeLargeUpdate(OraclePreparedStatement.java:4061)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4036)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:995)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at ma.ensa.healthcare.dao.impl.FactureDAOImpl.save(FactureDAOImpl.java:61)
+	at ma.ensa.healthcare.service.FacturationService.genererFacture(FacturationService.java:76)
+	at ma.ensa.healthcare.facade.ConsultationFacade.terminerConsultation(ConsultationFacade.java:55)
+	at ma.ensa.healthcare.Main.main(Main.java:343)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.executeMainMethod(AbstractExecJavaBase.java:402)
+	at org.codehaus.mojo.exec.ExecJavaMojo.executeMainMethod(ExecJavaMojo.java:142)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.doExecClassLoader(AbstractExecJavaBase.java:377)
+	at org.codehaus.mojo.exec.AbstractExecJavaBase.lambda$execute$0(AbstractExecJavaBase.java:287)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00001: unique constraint (HEALTHY.SYS_C008616) violated
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:636)
+	... 26 common frames omitted
+2025-12-24 04:23:54.521 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:23:55.546 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@563ee29a
+2025-12-24 04:23:55.549 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:23:55.993 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_96ad7450 (ID: 28)
+2025-12-24 04:23:56.009 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 30)
+2025-12-24 04:23:56.040 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 31)
+2025-12-24 04:23:56.044 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 30 pour département 28
+2025-12-24 04:23:56.060 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 28
+2025-12-24 04:23:56.068 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 29
+2025-12-24 04:23:56.091 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_96ad7450 (ID: 22)
+2025-12-24 04:23:56.109 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_Z96AD74 (ID: 23)
+2025-12-24 04:23:56.127 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 17
+2025-12-24 04:23:56.150 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 18
+2025-12-24 04:23:56.169 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Augmentin_96ad (ID: 28)
+2025-12-24 04:23:56.176 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Toplexil_96ad (ID: 29)
+2025-12-24 04:23:56.219 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Brufen_96ad (ID: 30)
+2025-12-24 04:23:56.424 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 10
+2025-12-24 04:23:56.443 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 10, retour facture existante ID 8
+2025-12-24 04:33:18.014 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:33:18.870 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@563ee29a
+2025-12-24 04:33:18.877 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:33:19.266 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Pneumologie_5c42c7b2 (ID: 29)
+2025-12-24 04:33:19.274 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. KHALIL Yasmine (ID: 32)
+2025-12-24 04:33:19.310 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. IDRISSI Omar (ID: 33)
+2025-12-24 04:33:19.313 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 32 pour département 29
+2025-12-24 04:33:19.326 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 30
+2025-12-24 04:33:19.335 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 31
+2025-12-24 04:33:19.352 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_5c42c7b2 (ID: 24)
+2025-12-24 04:33:19.392 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_Z5C42C7 (ID: 25)
+2025-12-24 04:33:19.411 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 19
+2025-12-24 04:33:19.427 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 20
+2025-12-24 04:33:19.460 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Augmentin_5c42 (ID: 31)
+2025-12-24 04:33:19.486 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Toplexil_5c42 (ID: 32)
+2025-12-24 04:33:19.505 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Brufen_5c42 (ID: 33)
+2025-12-24 04:33:19.539 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 11
+2025-12-24 04:33:19.563 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 11, retour facture existante ID 9
+2025-12-24 04:33:21.319 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown initiated...
+2025-12-24 04:33:21.369 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown completed.
+2025-12-24 04:41:38.780 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:41:39.511 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@563ee29a
+2025-12-24 04:41:39.515 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:41:39.859 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Cardiologie_2e696dd5 (ID: 30)
+2025-12-24 04:41:39.874 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENJELLOUN Karim (ID: 34)
+2025-12-24 04:41:39.919 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. ALAMI Nadia (ID: 35)
+2025-12-24 04:41:39.933 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 34 pour département 30
+2025-12-24 04:41:39.971 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 32
+2025-12-24 04:41:39.993 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 33
+2025-12-24 04:41:40.032 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_2e696dd5 (ID: 26)
+2025-12-24 04:41:40.058 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_K2E696D (ID: 27)
+2025-12-24 04:41:40.078 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 21
+2025-12-24 04:41:40.117 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 22
+2025-12-24 04:41:40.128 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Kardegic_2e69 (ID: 34)
+2025-12-24 04:41:40.147 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Ténormine_2e69 (ID: 35)
+2025-12-24 04:41:40.155 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Tahor_2e69 (ID: 36)
+2025-12-24 04:41:40.197 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 12
+2025-12-24 04:41:40.210 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 12, retour facture existante ID 10
+2025-12-24 04:41:41.803 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown initiated...
+2025-12-24 04:41:41.821 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown completed.
+2025-12-24 04:48:54.547 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:48:55.120 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@156a8720
+2025-12-24 04:48:55.135 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:48:55.812 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Cardiologie_e86cc92a (ID: 31)
+2025-12-24 04:48:55.835 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENJELLOUN Karim (ID: 36)
+2025-12-24 04:48:55.854 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. ALAMI Nadia (ID: 37)
+2025-12-24 04:48:55.858 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 36 pour département 31
+2025-12-24 04:48:55.870 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 34
+2025-12-24 04:48:55.880 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 35
+2025-12-24 04:48:55.899 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_e86cc92a (ID: 28)
+2025-12-24 04:48:55.920 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_KE86CC9 (ID: 29)
+2025-12-24 04:48:55.933 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 23
+2025-12-24 04:48:55.950 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 24
+2025-12-24 04:48:55.971 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Kardegic_e86c (ID: 37)
+2025-12-24 04:48:55.976 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Ténormine_e86c (ID: 38)
+2025-12-24 04:48:55.981 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Tahor_e86c (ID: 39)
+2025-12-24 04:48:55.994 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 13
+2025-12-24 04:48:56.009 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 13, retour facture existante ID 11
+2025-12-24 04:48:57.613 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown initiated...
+2025-12-24 04:48:57.631 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown completed.
+2025-12-24 04:52:21.709 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:52:22.317 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@156a8720
+2025-12-24 04:52:22.317 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:52:23.080 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Cardiologie_d986474f (ID: 32)
+2025-12-24 04:52:23.098 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENJELLOUN Karim (ID: 38)
+2025-12-24 04:52:23.126 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. ALAMI Nadia (ID: 39)
+2025-12-24 04:52:23.148 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 38 pour département 32
+2025-12-24 04:52:23.174 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 36
+2025-12-24 04:52:23.187 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 37
+2025-12-24 04:52:23.212 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_d986474f (ID: 30)
+2025-12-24 04:52:23.247 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_KD98647 (ID: 31)
+2025-12-24 04:52:23.261 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 25
+2025-12-24 04:52:23.282 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 26
+2025-12-24 04:52:23.315 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Kardegic_d986 (ID: 40)
+2025-12-24 04:52:23.322 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Ténormine_d986 (ID: 41)
+2025-12-24 04:52:23.331 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Tahor_d986 (ID: 42)
+2025-12-24 04:52:23.376 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 14
+2025-12-24 04:52:23.392 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 14, retour facture existante ID 12
+2025-12-24 04:52:25.046 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown initiated...
+2025-12-24 04:52:25.061 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown completed.
+2025-12-24 04:56:37.249 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 04:56:37.844 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@156a8720
+2025-12-24 04:56:37.848 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 04:56:38.407 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Cardiologie_42d9a587 (ID: 33)
+2025-12-24 04:56:38.426 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENJELLOUN Karim (ID: 40)
+2025-12-24 04:56:38.453 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. ALAMI Nadia (ID: 41)
+2025-12-24 04:56:38.459 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 40 pour département 33
+2025-12-24 04:56:38.481 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 38
+2025-12-24 04:56:38.502 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 39
+2025-12-24 04:56:38.538 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_42d9a587 (ID: 32)
+2025-12-24 04:56:38.578 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_K42D9A5 (ID: 33)
+2025-12-24 04:56:38.642 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 27
+2025-12-24 04:56:38.669 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 28
+2025-12-24 04:56:38.703 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Kardegic_42d9 (ID: 43)
+2025-12-24 04:56:38.707 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Ténormine_42d9 (ID: 44)
+2025-12-24 04:56:38.716 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Tahor_42d9 (ID: 45)
+2025-12-24 04:56:38.730 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 15
+2025-12-24 04:56:38.746 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 15, retour facture existante ID 13
+2025-12-24 04:56:40.334 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown initiated...
+2025-12-24 04:56:40.349 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown completed.
+2025-12-24 05:25:29.075 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Starting...
+2025-12-24 05:25:29.747 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.pool.HikariPool - Healthcare-HikariPool - Added connection oracle.jdbc.driver.T4CConnection@24e44d2f
+2025-12-24 05:25:29.750 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Start completed.
+2025-12-24 05:25:30.588 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Département enregistré avec succès : Cardiologie_a1c8fe3c (ID: 34)
+2025-12-24 05:25:30.624 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. BENJELLOUN Karim (ID: 42)
+2025-12-24 05:25:30.659 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedecinDAOImpl - Médecin enregistré : Dr. ALAMI Nadia (ID: 43)
+2025-12-24 05:25:30.673 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.DepartementDAOImpl - Chef de département défini : médecin 42 pour département 34
+2025-12-24 05:25:30.708 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 40
+2025-12-24 05:25:30.735 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.PatientDAOImpl - Patient créé avec succès, ID: 41
+2025-12-24 05:25:30.763 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : admin_a1c8fe3c (ID: 34)
+2025-12-24 05:25:30.790 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.UtilisateurDAOImpl - Utilisateur créé avec succès : patient_KA1C8FE (ID: 35)
+2025-12-24 05:25:30.810 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 29
+2025-12-24 05:25:30.831 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.RendezVousDAOImpl - Rendez-vous créé avec succès, ID: 30
+2025-12-24 05:25:30.846 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Kardegic_a1c8 (ID: 46)
+2025-12-24 05:25:30.853 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Ténormine_a1c8 (ID: 47)
+2025-12-24 05:25:30.861 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.MedicamentDAOImpl - Médicament enregistré : Tahor_a1c8 (ID: 48)
+2025-12-24 05:25:30.876 INFO  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.ConsultationDAOImpl - Consultation enregistrée avec succès ID: 16
+2025-12-24 05:25:30.895 WARN  [ma.ensa.healthcare.Main.main()] m.e.h.dao.impl.FactureDAOImpl - Facture déjà existante pour consultation ID 16, retour facture existante ID 14
+2025-12-24 05:25:32.621 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown initiated...
+2025-12-24 05:25:32.674 INFO  [ma.ensa.healthcare.Main.main()] com.zaxxer.hikari.HikariDataSource - Healthcare-HikariPool - Shutdown completed.
