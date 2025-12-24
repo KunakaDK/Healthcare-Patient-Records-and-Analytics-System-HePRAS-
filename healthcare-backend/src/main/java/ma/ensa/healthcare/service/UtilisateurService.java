@@ -2,6 +2,7 @@ package ma.ensa.healthcare.service;
 
 import ma.ensa.healthcare.dao.impl.UtilisateurDAOImpl;
 import ma.ensa.healthcare.dao.interfaces.IUtilisateurDAO;
+<<<<<<< HEAD
 import ma.ensa.healthcare.exception.UtilisateurException;
 import ma.ensa.healthcare.model.Utilisateur;
 import ma.ensa.healthcare.model.enums.Role;
@@ -311,5 +312,26 @@ public class UtilisateurService {
         // - Au moins une majuscule
         // - Au moins un chiffre
         // - Au moins un caractère spécial
+=======
+import ma.ensa.healthcare.model.Utilisateur;
+
+public class UtilisateurService {
+    private final IUtilisateurDAO utilisateurDAO = new UtilisateurDAOImpl();
+
+    public Utilisateur login(String username, String password) {
+        Utilisateur u = utilisateurDAO.findByUsername(username);
+        if (u != null && u.getPassword().equals(password)) { // Dans un vrai projet, utilisez BCrypt
+            if (!u.isActif()) {
+                throw new RuntimeException("Compte désactivé");
+            }
+            return u;
+        }
+        throw new RuntimeException("Identifiants incorrects");
+    }
+
+    public Utilisateur inscrire(Utilisateur u) {
+        // Logique de validation (doublons, complexité password, etc.)
+        return utilisateurDAO.save(u);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }

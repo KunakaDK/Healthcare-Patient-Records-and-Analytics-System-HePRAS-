@@ -3,7 +3,10 @@ package ma.ensa.healthcare.dao.impl;
 import ma.ensa.healthcare.config.DatabaseConfig;
 import ma.ensa.healthcare.dao.interfaces.IDepartementDAO;
 import ma.ensa.healthcare.model.Departement;
+<<<<<<< HEAD
 import ma.ensa.healthcare.model.Medecin;
+=======
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,15 +14,19 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 /**
  * Implémentation DAO pour l'entité DEPARTEMENT
  * Correspondance avec la table Oracle DEPARTEMENT
  */
+=======
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 public class DepartementDAOImpl implements IDepartementDAO {
     private static final Logger logger = LoggerFactory.getLogger(DepartementDAOImpl.class);
 
     @Override
     public Departement save(Departement dept) {
+<<<<<<< HEAD
         // ✅ IMPORTANT: Vérifier d'abord si le département existe déjà
         Departement existing = findByNom(dept.getNomDepartement());
         if (existing != null) {
@@ -63,10 +70,27 @@ public class DepartementDAOImpl implements IDepartementDAO {
         } catch (SQLException e) {
             logger.error("Erreur save Departement: {}", e.getMessage(), e);
             throw new RuntimeException("Erreur lors de la sauvegarde du département", e);
+=======
+        String sql = "INSERT INTO DEPARTEMENT (NOM, DESCRIPTION) VALUES (?, ?)";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, new String[]{"ID"})) {
+            
+            ps.setString(1, dept.getNom());
+            ps.setString(2, dept.getDescription());
+            ps.executeUpdate();
+
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) dept.setId(rs.getLong(1));
+            }
+            logger.info("Département enregistré : {}", dept.getNom());
+        } catch (SQLException e) {
+            logger.error("Erreur save Departement", e);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         }
         return dept;
     }
 
+<<<<<<< HEAD
     /**
      * Recherche un département par son nom
      */
@@ -90,16 +114,28 @@ public class DepartementDAOImpl implements IDepartementDAO {
     @Override
     public Departement findById(Long id) {
         String sql = "SELECT * FROM DEPARTEMENT WHERE id_departement = ?";
+=======
+    @Override
+    public Departement findById(Long id) {
+        String sql = "SELECT * FROM DEPARTEMENT WHERE ID = ?";
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, id);
             try (ResultSet rs = ps.executeQuery()) {
+<<<<<<< HEAD
                 if (rs.next()) {
                     return mapResultSetToDepartement(rs);
                 }
             }
         } catch (SQLException e) {
             logger.error("Erreur findById Departement: {}", e.getMessage(), e);
+=======
+                if (rs.next()) return mapResultSetToDept(rs);
+            }
+        } catch (SQLException e) {
+            logger.error("Erreur findById Departement", e);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         }
         return null;
     }
@@ -107,21 +143,33 @@ public class DepartementDAOImpl implements IDepartementDAO {
     @Override
     public List<Departement> findAll() {
         List<Departement> list = new ArrayList<>();
+<<<<<<< HEAD
         String sql = "SELECT * FROM DEPARTEMENT ORDER BY nom_departement";
+=======
+        String sql = "SELECT * FROM DEPARTEMENT";
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         try (Connection conn = DatabaseConfig.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
+<<<<<<< HEAD
                 list.add(mapResultSetToDepartement(rs));
             }
         } catch (SQLException e) {
             logger.error("Erreur findAll Departement: {}", e.getMessage(), e);
+=======
+                list.add(mapResultSetToDept(rs));
+            }
+        } catch (SQLException e) {
+            logger.error("Erreur findAll Departement", e);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         }
         return list;
     }
 
     @Override
     public void update(Departement dept) {
+<<<<<<< HEAD
         String sql = "UPDATE DEPARTEMENT SET nom_departement = ?, chef_departement_id = ?, " +
                      "nombre_lits = ?, telephone = ? WHERE id_departement = ?";
         try (Connection conn = DatabaseConfig.getConnection();
@@ -143,11 +191,23 @@ public class DepartementDAOImpl implements IDepartementDAO {
         } catch (SQLException e) {
             logger.error("Erreur update Departement: {}", e.getMessage(), e);
             throw new RuntimeException("Erreur lors de la mise à jour du département", e);
+=======
+        String sql = "UPDATE DEPARTEMENT SET NOM = ?, DESCRIPTION = ? WHERE ID = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, dept.getNom());
+            ps.setString(2, dept.getDescription());
+            ps.setLong(3, dept.getId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Erreur update Departement", e);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         }
     }
 
     @Override
     public void delete(Long id) {
+<<<<<<< HEAD
         String sql = "DELETE FROM DEPARTEMENT WHERE id_departement = ?";
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -291,5 +351,23 @@ public class DepartementDAOImpl implements IDepartementDAO {
             logger.error("Erreur findMedecinById: {}", e.getMessage(), e);
         }
         return null;
+=======
+        String sql = "DELETE FROM DEPARTEMENT WHERE ID = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setLong(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Erreur delete Departement", e);
+        }
+    }
+
+    private Departement mapResultSetToDept(ResultSet rs) throws SQLException {
+        return Departement.builder()
+                .id(rs.getLong("ID"))
+                .nom(rs.getString("NOM"))
+                .description(rs.getString("DESCRIPTION"))
+                .build();
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }

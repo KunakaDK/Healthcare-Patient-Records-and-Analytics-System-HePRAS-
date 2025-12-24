@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.service;
 
+<<<<<<< HEAD
 import ma.ensa.healthcare.dao.impl.*;
 import ma.ensa.healthcare.dao.interfaces.*;
 import ma.ensa.healthcare.dto.StatisticsDTO;
@@ -240,6 +241,16 @@ public class AnalyticsService {
             .reduce(BigDecimal.ZERO, BigDecimal::add);
         stats.put("montantRestant", totalImpaye);
         
+=======
+import ma.ensa.healthcare.dao.impl.PatientDAOImpl;
+import ma.ensa.healthcare.dto.StatisticsDTO;
+
+public class AnalyticsService {
+    public StatisticsDTO getGlobalStats() {
+        StatisticsDTO stats = new StatisticsDTO();
+        // Ici, on appellerait des méthodes de comptage SQL
+        // stats.setTotalPatients(patientDAO.count());
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         return stats;
     }
 }

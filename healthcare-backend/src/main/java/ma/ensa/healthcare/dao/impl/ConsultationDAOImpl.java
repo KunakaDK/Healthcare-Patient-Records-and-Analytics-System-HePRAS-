@@ -16,6 +16,7 @@ public class ConsultationDAOImpl implements IConsultationDAO {
 
     @Override
     public Consultation save(Consultation c) {
+<<<<<<< HEAD
         // ✅ Inclure date_consultation dans l'INSERT (9 paramètres)
         String sql = "INSERT INTO CONSULTATION (id_consultation, id_rdv, date_consultation, " +
                      "symptomes, diagnostic, observations, prescription, examens_demandes, tarif_consultation) " +
@@ -47,27 +48,56 @@ public class ConsultationDAOImpl implements IConsultationDAO {
         } catch (SQLException e) {
             logger.error("Erreur save Consultation: {}", e.getMessage(), e);
             throw new RuntimeException("Erreur lors de l'enregistrement de la consultation", e);
+=======
+        String sql = "INSERT INTO CONSULTATION (DATE_CONSULTATION, DIAGNOSTIC, TRAITEMENT_PRESCRIT, NOTES_MEDECIN, RENDEZVOUS_ID) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, new String[]{"ID"})) {
+            
+            ps.setDate(1, Date.valueOf(c.getDateConsultation()));
+            ps.setString(2, c.getDiagnostic());
+            ps.setString(3, c.getTraitementPrescrit());
+            ps.setString(4, c.getNotesMedecin());
+            ps.setLong(5, c.getRendezVous().getId());
+
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) c.setId(rs.getLong(1));
+            
+            logger.info("Consultation enregistrée avec succès ID: {}", c.getId());
+        } catch (SQLException e) {
+            logger.error("Erreur save Consultation", e);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         }
         return c;
     }
 
     @Override
     public Consultation findById(Long id) {
+<<<<<<< HEAD
         String sql = "SELECT * FROM CONSULTATION WHERE id_consultation = ?";
+=======
+        String sql = "SELECT * FROM CONSULTATION WHERE ID = ?";
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
+<<<<<<< HEAD
             if (rs.next()) {
                 return mapResultSetToConsultation(rs);
             }
         } catch (SQLException e) {
             logger.error("Erreur findById Consultation: {}", e.getMessage(), e);
         }
+=======
+            if (rs.next()) return mapResultSetToConsultation(rs);
+        } catch (SQLException e) { logger.error("Erreur findById Consultation", e); }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         return null;
     }
 
     @Override
+<<<<<<< HEAD
     public List<Consultation> findByPatientId(Long patientId) {
         List<Consultation> consultations = new ArrayList<>();
         String sql = "SELECT c.* FROM CONSULTATION c " +
@@ -126,10 +156,21 @@ public class ConsultationDAOImpl implements IConsultationDAO {
         } catch (SQLException e) {
             logger.error("Erreur findAll Consultation: {}", e.getMessage(), e);
         }
+=======
+    public List<Consultation> findAll() {
+        List<Consultation> list = new ArrayList<>();
+        String sql = "SELECT * FROM CONSULTATION";
+        try (Connection conn = DatabaseConfig.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) list.add(mapResultSetToConsultation(rs));
+        } catch (SQLException e) { logger.error("Erreur findAll Consultation", e); }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         return list;
     }
 
     @Override
+<<<<<<< HEAD
     public void update(Consultation c) {
         String sql = "UPDATE CONSULTATION SET symptomes=?, diagnostic=?, observations=?, " +
                      "prescription=?, examens_demandes=?, tarif_consultation=? " +
@@ -169,10 +210,21 @@ public class ConsultationDAOImpl implements IConsultationDAO {
     @Override
     public Consultation findByRendezVousId(Long rdvId) {
         String sql = "SELECT * FROM CONSULTATION WHERE id_rdv = ?";
+=======
+    public void update(Consultation c) { /* Implementation similaire à save avec SQL UPDATE */ }
+
+    @Override
+    public void delete(Long id) { /* Implementation SQL DELETE */ }
+
+    @Override
+    public Consultation findByRendezVousId(Long rdvId) {
+        String sql = "SELECT * FROM CONSULTATION WHERE RENDEZVOUS_ID = ?";
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
         try (Connection conn = DatabaseConfig.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, rdvId);
             ResultSet rs = ps.executeQuery();
+<<<<<<< HEAD
             if (rs.next()) {
                 return mapResultSetToConsultation(rs);
             }
@@ -199,6 +251,23 @@ public class ConsultationDAOImpl implements IConsultationDAO {
                 .prescription(rs.getString("prescription"))
                 .examenesDemandes(rs.getString("examens_demandes"))
                 .tarifConsultation(rs.getBigDecimal("tarif_consultation"))
+=======
+            if (rs.next()) return mapResultSetToConsultation(rs);
+        } catch (SQLException e) { logger.error("Erreur findByRdvId", e); }
+        return null;
+    }
+
+    private Consultation mapResultSetToConsultation(ResultSet rs) throws SQLException {
+        RendezVous rdv = new RendezVous();
+        rdv.setId(rs.getLong("RENDEZVOUS_ID"));
+        
+        return Consultation.builder()
+                .id(rs.getLong("ID"))
+                .dateConsultation(rs.getDate("DATE_CONSULTATION").toLocalDate())
+                .diagnostic(rs.getString("DIAGNOSTIC"))
+                .traitementPrescrit(rs.getString("TRAITEMENT_PRESCRIT"))
+                .notesMedecin(rs.getString("NOTES_MEDECIN"))
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
                 .rendezVous(rdv)
                 .build();
     }

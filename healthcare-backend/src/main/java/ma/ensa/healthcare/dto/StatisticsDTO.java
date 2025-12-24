@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.dto;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.util.Map;
 
@@ -16,10 +17,20 @@ public class StatisticsDTO {
     private long facturesImpayees;                   // ✅ Ajouté
     private Map<String, Integer> consultationsParSpecialite; // ex: {"Cardiologie": 15}
     private Map<String, Integer> rdvParStatut;       // ✅ Ajouté : {"PLANIFIE": 10, "CONFIRME": 5}
+=======
+import java.util.Map;
+
+public class StatisticsDTO {
+    private long totalPatients;
+    private long totalRendezVousAujourdhui;
+    private double chiffreAffaireMois;
+    private Map<String, Integer> consultationsParSpecialite; // ex: {"Cardiologie": 15, "Général": 40}
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 
     public StatisticsDTO() {}
 
     // Getters et Setters
+<<<<<<< HEAD
     public long getTotalPatients() { 
         return totalPatients; 
     }
@@ -91,4 +102,17 @@ public class StatisticsDTO {
     public void setRdvParStatut(Map<String, Integer> rdvParStatut) { 
         this.rdvParStatut = rdvParStatut; 
     }
+=======
+    public long getTotalPatients() { return totalPatients; }
+    public void setTotalPatients(long totalPatients) { this.totalPatients = totalPatients; }
+
+    public long getTotalRendezVousAujourdhui() { return totalRendezVousAujourdhui; }
+    public void setTotalRendezVousAujourdhui(long totalRendezVousAujourdhui) { this.totalRendezVousAujourdhui = totalRendezVousAujourdhui; }
+
+    public double getChiffreAffaireMois() { return chiffreAffaireMois; }
+    public void setChiffreAffaireMois(double chiffreAffaireMois) { this.chiffreAffaireMois = chiffreAffaireMois; }
+
+    public Map<String, Integer> getConsultationsParSpecialite() { return consultationsParSpecialite; }
+    public void setConsultationsParSpecialite(Map<String, Integer> consultationsParSpecialite) { this.consultationsParSpecialite = consultationsParSpecialite; }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

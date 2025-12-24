@@ -2,6 +2,7 @@ package ma.ensa.healthcare.service;
 
 import ma.ensa.healthcare.dao.impl.PatientDAOImpl;
 import ma.ensa.healthcare.dao.interfaces.IPatientDAO;
+<<<<<<< HEAD
 import ma.ensa.healthcare.exception.PatientException;
 import ma.ensa.healthcare.model.Patient;
 import ma.ensa.healthcare.model.enums.Sexe;
@@ -15,6 +16,17 @@ import java.util.List;
  * Service métier pour la gestion des patients
  */
 public class PatientService {
+=======
+import ma.ensa.healthcare.model.Patient;
+import ma.ensa.healthcare.validation.PatientValidator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+
+public class PatientService {
+    
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     private static final Logger logger = LoggerFactory.getLogger(PatientService.class);
     private final IPatientDAO patientDAO;
 
@@ -22,6 +34,7 @@ public class PatientService {
         this.patientDAO = new PatientDAOImpl();
     }
 
+<<<<<<< HEAD
     /**
      * Crée un nouveau patient avec validation complète
      */
@@ -55,10 +68,31 @@ public class PatientService {
     /**
      * Récupère tous les patients
      */
+=======
+    public Patient createPatient(Patient patient) {
+        // 1. Validation Métier
+        PatientValidator.validate(patient);
+        
+        // 2. Vérification existence (Règle métier : CIN unique)
+        // Note: Idéalement il faudrait une méthode findByCin, on simule ici
+        List<Patient> exists = patientDAO.findByNom(patient.getNom());
+        // ... Logique de vérification CIN ...
+
+        // 3. Appel DAO
+        try {
+            return patientDAO.save(patient);
+        } catch (Exception e) {
+            logger.error("Erreur service creation patient", e);
+            throw e;
+        }
+    }
+
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     public List<Patient> getAllPatients() {
         return patientDAO.findAll();
     }
     
+<<<<<<< HEAD
     /**
      * Récupère un patient par ID
      */
@@ -203,5 +237,9 @@ public class PatientService {
                 logger.warn("Format de téléphone non standard pour patient {}", patient.getCin());
             }
         }
+=======
+    public Patient getPatientById(Long id) {
+        return patientDAO.findById(id);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     }
 }

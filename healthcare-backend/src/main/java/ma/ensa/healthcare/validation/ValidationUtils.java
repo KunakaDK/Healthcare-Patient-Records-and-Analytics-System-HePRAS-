@@ -1,5 +1,6 @@
 package ma.ensa.healthcare.validation;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -192,4 +193,18 @@ public class ValidationUtils {
         // Sinon, ajouter 0
         return "0" + tel;
     }
+=======
+import java.util.regex.Pattern;
+
+public class ValidationUtils {
+    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    public static boolean isValidEmail(String email) {
+        return email != null && EMAIL_PATTERN.matcher(email).matches();
+    }
+    
+    public static boolean isNotEmpty(String str) {
+        return str != null && !str.trim().isEmpty();
+    }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

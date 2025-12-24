@@ -1,6 +1,7 @@
 package ma.ensa.healthcare.transaction;
 
 import ma.ensa.healthcare.config.DatabaseConfig;
+<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,11 +18,18 @@ public class TransactionTemplate {
     /**
      * Interface fonctionnelle pour le callback de transaction
      */
+=======
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class TransactionTemplate {
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
     @FunctionalInterface
     public interface TransactionCallback<T> {
         T doInTransaction(Connection conn) throws SQLException;
     }
 
+<<<<<<< HEAD
     /**
      * Exécute une opération dans une transaction
      * Gère automatiquement le commit/rollback
@@ -84,4 +92,23 @@ public class TransactionTemplate {
     public interface TransactionCallbackWithoutResult {
         void doInTransaction(Connection conn) throws SQLException;
     }
+=======
+    public <T> T execute(TransactionCallback<T> callback) {
+        Connection conn = null;
+        try {
+            conn = DatabaseConfig.getConnection();
+            conn.setAutoCommit(false); // Début transaction
+            
+            T result = callback.doInTransaction(conn);
+            
+            conn.commit(); // Succès
+            return result;
+        } catch (Exception e) {
+            TransactionManager.rollback(conn); // Échec
+            throw new RuntimeException("Erreur lors de la transaction : " + e.getMessage(), e);
+        } finally {
+            try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
+    }
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

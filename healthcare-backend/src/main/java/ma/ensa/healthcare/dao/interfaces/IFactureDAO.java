@@ -3,6 +3,7 @@ package ma.ensa.healthcare.dao.interfaces;
 import ma.ensa.healthcare.model.Facture;
 import java.util.List;
 
+<<<<<<< HEAD
 import ma.ensa.healthcare.model.enums.ModePaiement;
 import ma.ensa.healthcare.model.enums.StatutPaiement;
 import java.math.BigDecimal;
@@ -51,4 +52,11 @@ public interface IFactureDAO {
     BigDecimal getTotalImpaye();
     BigDecimal getRevenusPeriode(LocalDate dateDebut, LocalDate dateFin);
     String genererNumeroFacture();
+=======
+public interface IFactureDAO {
+    Facture save(Facture facture);
+    Facture findById(Long id);
+    List<Facture> findAll();
+    void updateStatut(Long id, String statut);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }

@@ -3,6 +3,7 @@ package ma.ensa.healthcare.dao.interfaces;
 import ma.ensa.healthcare.model.Traitement;
 import java.util.List;
 
+<<<<<<< HEAD
 /**
  * Interface DAO pour l'entité Traitement
  */
@@ -36,4 +37,10 @@ public interface ITraitementDAO {
      * Récupère tous les traitements d'une consultation
      */
     List<Traitement> findByConsultationId(Long consultationId);
+=======
+public interface ITraitementDAO {
+    Traitement save(Traitement traitement);
+    List<Traitement> findByConsultationId(Long consultationId);
+    void delete(Long id);
+>>>>>>> 51509288808383cb3589bbc4e9010c3e90972737
 }
