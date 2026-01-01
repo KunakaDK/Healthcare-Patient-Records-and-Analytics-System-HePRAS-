@@ -5,12 +5,15 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import ma.ensa.healthcare.config.HikariCPConfig;
 import ma.ensa.healthcare.config.PropertyManager;
 import ma.ensa.healthcare.model.Utilisateur;
 import ma.ensa.healthcare.service.UtilisateurService;
 import ma.ensa.healthcare.ui.MainApp;
+import ma.ensa.healthcare.ui.utils.PermissionManager;
 import ma.ensa.healthcare.ui.utils.SessionManager;
 import ma.ensa.healthcare.util.CacheManager;
 import org.slf4j.Logger;
@@ -31,6 +34,13 @@ import ma.ensa.healthcare.util.DatabaseExportService;
 import javafx.concurrent.Task;
 import org.controlsfx.dialog.ProgressDialog;
 import java.io.File;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import ma.ensa.healthcare.model.enums.Role;
+
+import ma.ensa.healthcare.ui.utils.PermissionManager;
 
 
 /**
@@ -71,8 +81,15 @@ public class SettingsController {
     @FXML private Label lblOs;
     @FXML private Label lblMemory;
 
+    @FXML private VBox sectionDatabase;        // Section Base de Données
+    @FXML private VBox sectionSystemActions;
+
     @FXML
     public void initialize() {
+        if (!PermissionManager.canAccessSettings()) {
+            showError("Accès refusé", PermissionManager.getAccessDeniedMessage());
+            return;
+        }
         logger.info("Initialisation de l'onglet Paramètres");
         
         try {
@@ -81,6 +98,7 @@ public class SettingsController {
             loadDatabaseInfo();
             loadSystemInfo();
             startMemoryMonitoring();
+            configureAdvancedSettings();
             
             logger.info("Paramètres chargés avec succès");
         } catch (Exception e) {
@@ -856,5 +874,84 @@ public class SettingsController {
                 });
             }
         });
+    }
+
+    /**
+     * Ouvre le dialog pour ajouter un nouvel utilisateur
+     * Accessible uniquement aux administrateurs
+     */
+    @FXML
+    private void handleAddUser() {
+        try {
+            // Vérifier que l'utilisateur connecté est admin
+            if (!SessionManager.isLoggedIn()) {
+                showError("Erreur", "Vous devez être connecté pour effectuer cette action");
+                return;
+            }
+            
+            Utilisateur currentUser = SessionManager.getCurrentUser();
+            if (currentUser.getRole() != Role.ADMIN) {
+                showError("Accès Refusé", 
+                    "Seuls les administrateurs peuvent ajouter des utilisateurs.");
+                logger.warn("Tentative d'ajout d'utilisateur par un non-admin: {}", 
+                        currentUser.getUsername());
+                return;
+            }
+            
+            // Charger le FXML du dialog
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/fxml/add-user-dialog.fxml")
+            );
+            
+            Parent root = loader.load();
+            AddUserDialogController controller = loader.getController();
+            
+            // Créer la fenêtre dialog
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Ajouter un Utilisateur");
+            dialogStage.initModality(javafx.stage.Modality.WINDOW_MODAL);
+            dialogStage.initOwner(MainApp.getPrimaryStage());
+            dialogStage.setScene(new javafx.scene.Scene(root));
+            dialogStage.setResizable(false);
+            dialogStage.getIcons().add(
+                new Image(MainApp.class.getResourceAsStream("/images/icon.png"))
+            );
+            
+            // Afficher et attendre la fermeture
+            dialogStage.showAndWait();
+            
+            // Vérifier si un utilisateur a été créé
+            if (controller.isCreated()) {
+                logger.info("Nouvel utilisateur créé avec succès");
+                showSuccess("Succès", 
+                    "L'utilisateur a été créé avec succès!\n\n" +
+                    "Il peut maintenant se connecter avec ses identifiants.");
+            }
+            
+        } catch (Exception e) {
+            logger.error("Erreur lors de l'ouverture du dialog d'ajout", e);
+            showError("Erreur", 
+                "Impossible d'ouvrir le formulaire d'ajout:\n\n" + e.getMessage());
+        }
+    }
+
+    /**
+     * Configure la visibilité des sections selon les permissions
+     */
+    private void configureAdvancedSettings() {
+        // Sections visibles uniquement pour ADMIN
+        boolean isAdmin = PermissionManager.canAccessAdvancedSettings();
+        
+        if (sectionDatabase != null) {
+            sectionDatabase.setVisible(isAdmin);
+            sectionDatabase.setManaged(isAdmin);
+        }
+        
+        if (sectionSystemActions != null) {
+            sectionSystemActions.setVisible(isAdmin);
+            sectionSystemActions.setManaged(isAdmin);
+        }
+        
+        logger.info("Sections avancées configurées - Admin: {}", isAdmin);
     }
 }

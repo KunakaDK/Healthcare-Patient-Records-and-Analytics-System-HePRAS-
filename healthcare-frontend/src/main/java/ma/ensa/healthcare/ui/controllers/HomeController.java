@@ -15,10 +15,12 @@ import ma.ensa.healthcare.model.RendezVous;
 import ma.ensa.healthcare.model.enums.StatutRendezVous;
 import ma.ensa.healthcare.model.Consultation;
 import ma.ensa.healthcare.model.Facture;
+import ma.ensa.healthcare.model.Medicament;
 import ma.ensa.healthcare.service.*;
 import ma.ensa.healthcare.ui.dialogs.ConsultationDialog;
 import ma.ensa.healthcare.ui.dialogs.PatientDialog;
 import ma.ensa.healthcare.ui.dialogs.RendezVousDialog;
+import ma.ensa.healthcare.ui.utils.PermissionManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +39,9 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 import javafx.animation.Interpolator;
 
+import ma.ensa.healthcare.ui.utils.PermissionManager;
+import java.util.stream.Collectors;
+
 
 public class HomeController {
 
@@ -51,6 +56,9 @@ public class HomeController {
     @FXML private Label lblRevenus;
     @FXML private Label lblRevenusDetails;
     @FXML private GridPane gridKpiCards;
+    @FXML private Button btnQuickAddPatient;
+    @FXML private Button btnQuickAddRdv;
+    @FXML private Button btnQuickAddConsultation;
 
     // Table Prochains RDV
     @FXML private TableView<RendezVous> tableProchainRdv;
@@ -64,11 +72,17 @@ public class HomeController {
     @FXML private ListView<String> listFacturesImpayees;
     @FXML private ListView<String> listAlertesMedicaments;
 
+    // Sections à masquer conditionnellement
+    @FXML private VBox vboxProchainRdv;
+    @FXML private VBox vboxFacturesImpayees;
+    @FXML private VBox vboxAlertesMedicaments;
+
     // Services
     private final PatientService patientService = new PatientService();
     private final RendezVousService rdvService = new RendezVousService();
     private final ConsultationService consultationService = new ConsultationService();
     private final FacturationService facturationService = new FacturationService();
+    private final MedicamentService medicamentService = new MedicamentService();
 
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -76,6 +90,7 @@ public class HomeController {
     public void initialize() {
         setupTableColumns();
         loadDashboardData();
+        configurePermissions();
 
         // Parcourir tous les enfants du VBox
         for (Node node : gridKpiCards.getChildren()) {
@@ -99,7 +114,6 @@ public class HomeController {
                 });
             }
         }
-
     }
 
     /**
@@ -247,14 +261,35 @@ public class HomeController {
     }
 
     /**
-     * Charge les prochains rendez-vous
+     * Charge les prochains rendez-vous (filtrés pour les patients)
      */
     private void loadProchainRdv() {
         try {
-            List<RendezVous> rdvList = rdvService.getAllRendezVous(); // ou findAll() ou listerRendezVous()
+            List<RendezVous> rdvList = rdvService.getAllRendezVous();
             LocalDateTime now = LocalDateTime.now();
             
-            // ✅ CORRECTION : Utiliser heureDebut au lieu de getDateHeure()
+            // Filtrer par patient si nécessaire
+            if (PermissionManager.shouldFilterByPatient()) {
+                Long patientId = PermissionManager.getConnectedPatientId();
+                if (patientId != 0) {
+                    rdvList = rdvList.stream()
+                        .filter(rdv -> rdv.getIdPatient() != null && 
+                                    rdv.getIdPatient().equals(patientId))
+                        .collect(Collectors.toList());
+                }
+            }
+            
+            // ✅ Filtrer par médecin si nécessaire
+            if (PermissionManager.shouldFilterByMedecin()) {
+                Long medecinId = PermissionManager.getConnectedMedecinId();
+                if (medecinId != 0) {
+                    rdvList = rdvList.stream()
+                        .filter(rdv -> rdv.getMedecin() != null && 
+                                    rdv.getMedecin().getId().equals(medecinId))
+                        .collect(Collectors.toList());
+                }
+            }
+            
             List<RendezVous> prochainRdv = rdvList.stream()
                 .filter(rdv -> rdv.getHeureDebut() != null && !rdv.getHeureDebut().isBefore(now))
                 .sorted((r1, r2) -> r1.getHeureDebut().compareTo(r2.getHeureDebut()))
@@ -270,26 +305,36 @@ public class HomeController {
     }
 
     /**
-     * Charge la liste des factures impayées
+     * Charge la liste des factures impayées (filtrées pour les patients)
      */
     private void loadFacturesImpayees() {
         try {
-            // TODO: Récupérer les vraies factures depuis le service
-            // List<Facture> facturesImpayees = facturationService.findFacturesImpayees();
-            
-            // Pour l'instant, données fictives
             ObservableList<String> factures = FXCollections.observableArrayList();
             List<Facture> facturesList = facturationService.getToutesLesFactures();
+            
+            // Filtrer par patient si nécessaire
+            if (PermissionManager.shouldFilterByPatient()) {
+                Long patientId = PermissionManager.getConnectedPatientId();
+                if (patientId != 0) {
+                    facturesList = facturesList.stream()
+                        .filter(f -> f.getIdPatient() == patientId)
+                        .collect(Collectors.toList());
+                }
+            }
+            
             List<Facture> filtered = facturesList.stream()
                 .filter(f -> {
-                    boolean statutMatch = "Tous".equals("EN_ATTENTE") || 
-                        (f.getStatutPaiement() != null && f.getStatutPaiement().name().equals("EN_ATTENTE"));
-                    
+                    boolean statutMatch = f.getStatutPaiement() != null && 
+                                        f.getStatutPaiement().name().equals("EN_ATTENTE");
                     return statutMatch;
                 })
                 .toList();
+                
             factures.setAll(filtered.stream()
-                .map(f -> "Facture " + f.getNumeroFacture() + " - Patient: " + patientService.getPatientById(f.getIdPatient()).getNom() + " " + patientService.getPatientById(f.getIdPatient()).getPrenom() + " - Montant: " + f.getMontantTotal() + " MAD")
+                .map(f -> "Facture " + f.getNumeroFacture() + 
+                        " - Patient: " + patientService.getPatientById(f.getIdPatient()).getNom() + 
+                        " " + patientService.getPatientById(f.getIdPatient()).getPrenom() + 
+                        " - Montant: " + f.getMontantTotal() + " MAD")
                 .toList());
             listFacturesImpayees.setItems(factures);
             
@@ -303,19 +348,65 @@ public class HomeController {
      */
     private void loadAlertesMedicaments() {
         try {
-            // TODO: Récupérer les vrais médicaments en alerte depuis le service
-            // List<Medicament> medicamentsAlerte = medicamentService.getMedicamentsEnAlerte();
+            List<Medicament> medicamentsAlerte = medicamentService.getMedicamentsEnAlerte();
             
-            // Pour l'instant, données fictives
-            ObservableList<String> alertes = FXCollections.observableArrayList(
-                "Paracétamol - Stock: 45 (Seuil: 100)",
-                "Amoxicilline - Stock: 12 (Seuil: 50)",
-                "Ibuprofène - Stock: 8 (Seuil: 30)"
-            );
-            listAlertesMedicaments.setItems(alertes);
+            if (medicamentsAlerte.isEmpty()) {
+                // Aucune alerte
+                ObservableList<String> noAlerte = FXCollections.observableArrayList(
+                    "✓ Aucune alerte de stock",
+                    "Tous les médicaments sont en stock suffisant"
+                );
+                listAlertesMedicaments.setItems(noAlerte);
+                listAlertesMedicaments.setStyle("-fx-text-fill: #4CAF50;");
+            } else {
+                // Formater les alertes
+                ObservableList<String> alertes = FXCollections.observableArrayList();
+                
+                for (Medicament m : medicamentsAlerte) {
+                    String niveau = getNiveauAlerteIcon(m);
+                    String alerte = String.format(
+                        "%s %s - Stock: %d (Seuil: %d) - %s",
+                        niveau,
+                        m.getNomCommercial(),
+                        m.getStockDisponible(),
+                        m.getStockAlerte(),
+                        m.getForme() != null ? m.getForme() : ""
+                    );
+                    alertes.add(alerte);
+                }
+                
+                listAlertesMedicaments.setItems(alertes);
+                listAlertesMedicaments.setStyle("-fx-text-fill: #F44336;");
+                
+                logger.info("{} alerte(s) de médicament(s) affichée(s)", medicamentsAlerte.size());
+            }
             
         } catch (Exception e) {
             logger.error("Erreur lors du chargement des alertes médicaments", e);
+            
+            // Afficher un message d'erreur
+            ObservableList<String> errorMsg = FXCollections.observableArrayList(
+                "⚠ Erreur de chargement des alertes",
+                "Impossible de récupérer les données"
+            );
+            listAlertesMedicaments.setItems(errorMsg);
+            listAlertesMedicaments.setStyle("-fx-text-fill: #FF9800;");
+        }
+    }
+
+    /**
+     * Retourne l'icône appropriée selon le niveau de criticité
+     */
+    private String getNiveauAlerteIcon(Medicament m) {
+        int stock = m.getStockDisponible();
+        int alerte = m.getStockAlerte();
+        
+        if (stock == 0) {
+            return "🔴"; // Rupture de stock
+        } else if (stock <= alerte / 2) {
+            return "🟠"; // Critique
+        } else {
+            return "🟡"; // Attention
         }
     }
 
@@ -402,5 +493,43 @@ public class HomeController {
     @FXML
     public void handleRefresh() {
         loadDashboardData();
+    }
+
+    /**
+     * Configure la visibilité des sections selon les permissions
+     */
+    private void configurePermissions() {
+        // Statistiques KPI - visibles seulement pour Admin et Réceptionniste
+        boolean canViewStats = PermissionManager.canViewAllStatistics() || 
+                            PermissionManager.canAccessFactures();
+        if (gridKpiCards != null) {
+            gridKpiCards.setVisible(canViewStats);
+            gridKpiCards.setManaged(canViewStats);
+        }
+        
+        // Alertes médicaments - visibles seulement pour Admin et Réceptionniste
+        boolean canViewAlerts = PermissionManager.canAccessMedecins() ||
+                            PermissionManager.canModifyConsultation() ||
+                            PermissionManager.canAccessFactures();
+        if (vboxAlertesMedicaments != null) {
+            vboxAlertesMedicaments.setVisible(canViewAlerts);
+            vboxAlertesMedicaments.setManaged(canViewAlerts);
+        }
+        
+        // Quick Actions déjà gérés
+        if (btnQuickAddPatient != null) {
+            btnQuickAddPatient.setVisible(PermissionManager.canModifyPatient());
+            btnQuickAddPatient.setManaged(PermissionManager.canModifyPatient());
+        }
+        
+        if (btnQuickAddRdv != null) {
+            btnQuickAddRdv.setVisible(PermissionManager.canCreateRendezVous());
+            btnQuickAddRdv.setManaged(PermissionManager.canCreateRendezVous());
+        }
+        
+        if (btnQuickAddConsultation != null) {
+            btnQuickAddConsultation.setVisible(PermissionManager.canCreateConsultation());
+            btnQuickAddConsultation.setManaged(PermissionManager.canCreateConsultation());
+        }
     }
 }
